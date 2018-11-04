@@ -1,0 +1,10 @@
+Minor
+Major
+
+Tenured
+
+Survivor
+
+Eden
+
+lineage

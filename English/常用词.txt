@@ -1,0 +1,130 @@
+runtime 执行期 运行期、运行时
+
+　　common language runtime (CLR) 译为「通用语言执行层」
+
+　　rvalue 右值 右值
+
+　　save 储存 存储
+
+　　schedule 排程 调度
+
+　　scheduler 排程器 调度程序
+
+　　scheme 结构纲目、组织纲目
+
+　　scroll bar 卷轴 滚动条
+
+　　scope 生存空间、生存范围、范畴、作用域 生存空间
+
+　　scope operator 生存空间(范围决议)运算子 :: 生存空间操作符
+
+　　scope resolution operator
+
+　　生存空间决议运算子 生存空间解析操作符
+
+　　(与scope operator同)
+
+　　screen 萤幕 屏幕
+
+　　search 搜寻 查找
+
+　　semantics 语意 语义
+
+　　sequential container 序列式容器 顺序式容器
+
+　　(对应於 associative container)
+
+　　server 伺服器、伺服端 服务器、服务端
+
+　　serial 串行
+
+　　serialization 次第读写,序列化 序列化
+
+　　(serialize)
+
+　　setter (相对於 getter) 设值函式
+
+　　signal 信号
+
+　　signature 标记式、签名式、署名式 签名
+
+　　slider 滚轴 滑块
+
+　　slot 条孔、槽 槽
+
+　　smart pointer 灵巧指标、精灵指标 智能指针
+
+　　snapshot 萤幕快照(图) 屏幕截图
+
+　　specialization 特殊化、特殊化定义、特殊化宣告 特化
+
+　　specification 规格 规格、规范
+
+　　splitter 分裂视窗 切分窗口
+
+　　software 软体 软件
+
+　　solution 解法,解决方案 方案
+
+　　source 原始码 源码、源代码
+
+　　stack 堆叠 栈
+
+　　stack unwinding 堆叠辗转开解(此词用於 exception 主题) 栈辗转开解 *
+
+　　standard library 标准程式库
+
+　　standard template library 标准模板程式库
+
+　　statement 述句 语句、声明
+
+　　status bar 状态列、状态栏 状态条
+
+　　STL 见 standard template library
+
+　　stream 资料流、串流 流
+
+　　string 字串 字符串
+
+　　subroutine
+
+　　subscript operator 下标运算子 [ ] 下标操作符
+
+　　subtype 子型别 子类型
+
+　　support 支援 支持
+
+　　suspend 虚悬 挂起
+
+　　symbol 符号 记号
+
+　　syntax 语法 语法
+
+　　tag 标签 标记
+
+　　索引标签,页签
+
+　　target 标的(例 target pointer：标的指标) 目标
+
+　　task switch 工作切换 任务切换
+
+　　template 模板、范本 模板
+
+　　template argument deduction
+
+　　模板引数推导 模板叁数推导
+
+　　template explicit specialization
+
+　　模板显式特化(版本) 模板显式特化
+
+　　template parameter 模板叁数 模板叁数
+
+　　temporary object 暂时物件 临时对象
+
+　　text 文字 文本
+--------------------- 
+作者：Simon丶Ma 
+来源：CSDN 
+原文：https://blog.csdn.net/u011225629/article/details/50034981 
+版权声明：本文为博主原创文章，转载请附上博文链接！
