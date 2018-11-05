@@ -173,11 +173,133 @@ Executor向SparkContext申请Task，Task Scheduler将Task发放给Executor运行
 4).Task在Executor上运行，运行完毕释放所有资源。
 
 
+--- spark.shuffle.memoryFraction参数的含义，以及优化经验
+1）spark.shuffle.memoryFraction是shuffle调优中 重要参数，shuffle从上一个task拉去数据过来，
+要在Executor进行聚合操作，聚合操作时使用Executor内存的比例由该参数决定，
+默认是20%,如果聚合时数据超过了该大小，那么就会spill到磁盘，极大降低性能
+2）如果Spark作业中的RDD持久化操作较少，shuffle操作较多时，建议降低持久化操作的内存占比，
+提高shuffle操作的内存占比比例，避免shuffle过程中数据过多时内存不够用，必须溢写到磁盘上，降低了性能。
+此外，如果发现作业由于频繁的gc导致运行缓慢，意味着task执行用户代码的内存不够用，那么同样建议调低这个参数的值
+
+--- 描述Yarn执行一个任务的过程
+1）客户端client向ResouceManager提交Application，ResouceManager接受Application
+并根据集群资源状况选取一个node来启动Application的任务调度器driver（ApplicationMaster）
+2）ResouceManager找到那个node，命令其该node上的nodeManager来启动一个新的JVM进程运行程序的driver（ApplicationMaster）部分，driver（ApplicationMaster）启动时会首先向ResourceManager注册，说明由自己来负责当前程序的运行
+3）driver（ApplicationMaster）开始下载相关jar包等各种资源，基于下载的jar等信息决定向ResourceManager申请具体的资源内容。
+4）ResouceManager接受到driver（ApplicationMaster）提出的申请后，会最大化的满足资源分配请求，
+并发送资源的元数据信息给driver（ApplicationMaster）；
+5）driver（ApplicationMaster）收到发过来的资源元数据信息后会根据元数据信息发指令给具体机器上的NodeManager，让其启动具体的container。
+6）NodeManager收到driver发来的指令，启动container，container启动后必须向driver（ApplicationMaster）注册。
+7）driver（ApplicationMaster）收到container的注册，开始进行任务的调度和计算，直到任务完成。
+
+--- Yarn中的container是由谁负责销毁的
+  ApplicationMaster负责销毁
+
+--- 不启动Spark集群Master和work服务，可不可以运行Spark程序
+  可以，只要资源管理器第三方管理就可以，如由yarn管理
+
+--- spark on yarn Cluster 模式下，ApplicationMaster和driver是在同一个进程么
+是,driver 位于ApplicationMaster进程中。该进程负责申请资源，还负责监控程序、资源的动态情况
+
+--- Spark on Yarn 模式有哪些优点
+ 1)与其他计算框架共享集群资源
+ 2)相较于Spark自带的Standalone模式，Yarn的资源分配更加细致
+ 3)Application部署简化
+ 4)Yarn通过队列的方式，管理同时运行在Yarn集群中的多个服务，可根据不同类型的应用程序负载情况，调整对应的资源使用量，实现资源弹性管理
+
+--- 谈谈你对container的理解
+  1）Container作为资源分配和调度的基本单位，其中封装了的资源如内存，CPU，磁盘，网络带宽
+  2)Container由ApplicationMaster向ResourceManager申请的，由ResouceManager中的资源调度器异步分配给ApplicationMaster
+  3) Container的运行是由ApplicationMaster向资源所在的NodeManager发起的，Container运行时需提供内部执行的任务命令.
+  
+--- Spark on Yarn架构是怎么样的
+(1)ResourceManager接到请求后在集群中选择一个NodeManager分配Container，
+并在Container中启动ApplicationMaster进程；
+(2)在ApplicationMaster进程中初始化sparkContext；
+(3)ApplicationMaster向ResourceManager申请到Container后，
+通知NodeManager在获得的Container中启动excutor进程；
+(4)sparkContext分配Task给excutor，excutor发送运行状态给ApplicationMaster。
+https://blog.csdn.net/Kally_Wang/article/details/79699588
+
+--- 列出你所知道的调度器，说明其工作原理
+  a) Fifo schedular 默认的调度器  先进先出
+  b) Capacity schedular  计算能力调度器  选择占用内存小  优先级高的
+  c) Fair schedular 调肚脐  公平调度器  所有job 占用相同资源
+
+--- spark.driver.extraJavaOptions这个参数是什么意思，你们生产环境配了多少
+   传递给executors的JVM选项字符串
+   
+--- 你认为/etc/hosts配置错误，会对集群有什么影响
+    1）直接导致域名没法解析，主节点与子节点，子节点与子节点没法正常通讯
+    2）间接导致配置错误的相关节点删的服务不正常，甚至没法启动，job执行失败等等
+
+
+--- hadoop的TextInputFormat作用是什么，如何自定义实现
+   1，是getSplits
+   2，是getRecordReader
+
+---  为什么要用flume导入hdfs，hdfs的构架是怎样的
+   flume可以实时的导入数据到hdfs中，当hdfs上的文件达到一个指定大小的时候会形成一个文件，或者超过指定时间的话也形成一个文件
+
+--- Hive中存放是什么
+   表（数据+元数据）。 存的是和hdfs的映射关系，hive是逻辑上的数据仓库，实际操作的都是hdfs上的文件，
+   HQL就是用sql语法来写的mr程序。
+
+--- Sqoop工作原理是什么
+    hadoop生态圈上的数据传输工具
+
+
+--- Hadoop平台集群配置、环境变量设置
+   zookeeper：修改zoo.cfg文件，配置dataDir，和各个zk节点的server地址端口，tickTime心跳时间默认是2000ms，其他超时的时间都是以这个为基础的整数倍，之后再dataDir对应目录下写入myid文件和zoo.cfg中的server相对应。
+   hadoop：修改 
+  hadoop-env.sh配置java环境变量 
+  core-site.xml配置zk地址，临时目录等 
+  hdfs-site.xml配置nn信息，rpc和http通信地址，nn自动切换、zk连接超时时间等 
+  yarn-site.xml配置resourcemanager地址 
+  mapred-site.xml配置使用yarn 
+
+hbase：修改 
+hbase-env.sh配置java环境变量和是否使用自带的zk 
+hbase-site.xml配置hdfs上数据存放路径，zk地址和通讯超时时间、master节点 
+regionservers配置各个region节点 
+spark：
+修改spark-env.sh配置环境变量和master和worker节点配置信息
+
+--- Hadoop性能调优
+
+--- 
+
 --- 
 
 --- 
 
 --- 
+
+--- 
+
+--- 
+
+--- 
+
+--- 
+
+--- 
+
+--- 
+
+--- 
+
+--- 
+
+
+
+
+--- Combiner 和partition的作用 
+  ？？？？？？？？？？？
+    combine分为map端和reduce端，作用是把同一个key的键值对合并在一起 ， 这个合并的目的是为了减少网络传输
+    partition是分割map每个节点的结果，按照key分别映射给不同的reduce，也是可以自定义的。这里其实可以理解归类
+
+
 
 --- Receiver的直接方式,offset存儲在哪裏？
 基于direct的方式，使用kafka的简单api，Spark Streaming自己就负责追踪消费的offset，并保存在checkpoint中。
