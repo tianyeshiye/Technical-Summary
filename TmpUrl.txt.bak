@@ -7,6 +7,11 @@ Spark Streaming消费Kafka Direct方式数据零丢失实现
 
 
 
+https://www.jianshu.com/p/8f9ed2d58a26
+Spark Task 内存管理（on-heap&off-heap）
+
+
+
 Tachyon：Spark生态系统中的分布式内存文件系统  
 https://www.csdn.net/article/2015-06-25/2825056
 
@@ -34,6 +39,9 @@ https://blog.csdn.net/universe_ant/article/details/52145450
 
 Spark2.x 内存管理之---OFF_HEAP
 https://blog.csdn.net/qq_21439395/article/details/80773121
+
+Spark Task 内存管理（on-heap&off-heap）
+https://www.jianshu.com/p/8f9ed2d58a26
 
 
 Spark如何解决常见的Top N问题

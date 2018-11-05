@@ -266,16 +266,10 @@ spark：
 修改spark-env.sh配置环境变量和master和worker节点配置信息
 
 --- Hadoop性能调优
-调优可以通过系统配置、程序编写和作业调度算法来进行
 
---- hadoop和spark的都是并行计算，那么他们有什么相同和区别
-spark的迭代计算都是在内存中进行的，API中提供了大量的RDD操作如join，groupby等，而且通过DAG图可以实现良好的容错。
+--- 
 
---- kafka工作原理
-producer向broker发送事件，consumer从broker消费事件。 
-事件由topic区分开，每个consumer都会属于一个group。 
-相同group中的consumer不能重复消费事件，而同一事件将会发送给每个不同group的consumer
-
+--- 
 
 --- 
 
