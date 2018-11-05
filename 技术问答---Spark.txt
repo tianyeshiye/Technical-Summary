@@ -93,8 +93,6 @@ rdd执行过程中会形成dag图，然后形成lineage保证容错性等。
 --- Spark的数据本地性有哪几种
 PROCESS_LOCAL>NODE_LOCAL>ANY
 
-
-
 --- Spark Streaming 访问Kafka时，每次流结束后都会有一段时间间隔，执行的是什么
     streming逻辑结束后没有，流没有立马结束执行，在log中会有几秒的空白时间,为什么？
 
@@ -105,6 +103,90 @@ PROCESS_LOCAL>NODE_LOCAL>ANY
 spark.sql.shuffle.partitions 50 spark.default.parallelism 10
 第一个是针对spark sql的task数量
 第二个是非spark sql程序设置生效
+
+
+--- RDD有哪些缺陷
+1）不支持细粒度的写和更新操作（如网络爬虫），spark写数据是粗粒度的
+所谓粗粒度，就是批量写入数据，为了提高效率。但是读数据是细粒度的也就是
+说可以一条条的读
+2）不支持增量迭代计算，Flink支持
+
+--- 你如何从Kafka中获取数据
+基于Direct的方式
+这种新的不基于Receiver的直接方式，是在Spark 1.3中引入的，从而能够确保更加健壮的机制。替代掉使用Receiver来接收数据后，这种方式会周期性地查询Kafka，来获得每个topic+partition的最新的offset，从而定义每个batch的offset的范围。当处理数据的job启动时，就会使用Kafka的简单consumer api来获取Kafka指定offset范围的数据
+
+
+--- Spark中数据的位置是被谁管理的
+每个数据分片都对应具体物理位置，数据的位置是被blockManager，无论
+数据是在磁盘，内存还是tacyan，都是由blockManager管理
+
+--- rdd有几种操作类型
+1）transformation，
+2）action
+3）cronroller，crontroller是控制算子,
+4）cache,persist，对性能和效率的有很好的支持
+
+--- 列举你常用的action
+collect，reduce,take,
+count,
+saveAsTextFile
+
+--- Spark为什么要持久化，一般什么场景下要进行persist操作
+spark所有复杂一点的算法都会有persist身影,spark默认数据放在内存，spark很多内容都是放在内存的，非常适合高速迭代，1000个步骤
+只有第一个输入数据，中间不产生临时数据，但分布式系统风险很高，所以容易出错，就要容错，rdd出错或者分片可以根据血统算出来，如果没有对父rdd进行persist 或者cache的化，就需要重头做。
+以下场景会使用persist
+1）某个步骤计算非常耗时，需要进行persist持久化
+2）计算链条非常长，重新恢复要算很多步骤，很好使，persist
+3）checkpoint所在的rdd要持久化persist，
+lazy级别，框架发现有checnkpoint，checkpoint时单独触发一个job，需要重算一遍，checkpoint前
+要持久化，写个rdd.cache或者rdd.persist，将结果保存起来，再写checkpoint操作，这样执行起来会非常快，不需要重新计算rdd链条了。checkpoint之前一定会进行persist。
+4）shuffle之后为什么要persist，shuffle要进性网络传输，风险很大，数据丢失重来，恢复代价很大
+5）shuffle之前进行persist，框架默认将数据持久化到磁盘，这个是框架自动做的。
+
+
+--- 为什么要进行序列化
+序列化可以减少数据的体积，减少存储空间，
+高效存储和传输数据，
+不好的是使用的时候要反序列化，非常消耗CPU
+
+--- Alluxio和Redis有什么区别
+一个是分布式文件系统，一个是数据库，完全不一样的东西。
+Spark可以把中间结果缓存到Tachyon上，但是不可能缓存到Redis里面吧。Redis可以做快速查询，Tachyon能做查询么？
+
+Alluxio以内存为中心， 说白话：我们主要干的活是缓存。
+
+
+--- Executor之间如何共享数据？
+第三方   基于hdfs或者基于Alluxio
+
+
+--- RangePartitioner分区的原理
+RangePartitioner分区则尽量保证每个分区中数据量的均匀，而且分区与分区之间是有序的，
+也就是说一个分区中的元素肯定都是比另一个分区内的元素小或者大；但是分区内的元素是不能保证顺序的。
+简单的说就是将一定范围内的数映射到某一个分区内。其原理是水塘抽样
+
+--- Spark应用程序的执行过程是什么
+1)构建Spark Application的运行环境（启动SparkContext），SparkContext向资源管理器注册并申请运行Executor资源；
+2).资源管理器分配Executor资源并启动StandaloneExecutorBackend，Executor运行情况将随着心跳发送到资源管理器上；
+3).SparkContext构建成DAG图，将DAG图分解成Stage，并把Taskset发送给Task Scheduler。
+Executor向SparkContext申请Task，Task Scheduler将Task发放给Executor运行同时SparkContext将应用程序代码发放给Executor。
+4).Task在Executor上运行，运行完毕释放所有资源。
+
+
+--- 
+
+--- 
+
+--- 
+
+--- Receiver的直接方式,offset存儲在哪裏？
+基于direct的方式，使用kafka的简单api，Spark Streaming自己就负责追踪消费的offset，并保存在checkpoint中。
+Spark自己一定是同步的，因此可以保证数据是消费一次且仅消费一次。由于数据消费偏移量是保存在checkpoint中，
+因此，如果后续想使用kafka高级API消费数据，需要手动的更新zookeeper中的偏移量
+
+
+--- RDD通过Linage（记录数据更新）的方式为何很高效?
+?????????????
 
 
 
