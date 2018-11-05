@@ -15,6 +15,10 @@ https://www.sohu.com/a/132359011_470008
 Spark分析之BlockManager
 https://blog.csdn.net/xgjianstart/article/details/64133051
 
+https://www.jianshu.com/p/8f9ed2d58a26
+Spark Task 内存管理（on-heap&off-heap）
+
+
 
 Tachyon：Spark生态系统中的分布式内存文件系统  
 https://www.csdn.net/article/2015-06-25/2825056
@@ -32,3 +36,41 @@ https://blog.csdn.net/lipeng_bigdata/article/details/50947891
 
 当SparkSQL遇上Alluxio
 https://www.jianshu.com/p/ca75a8adb003?from=timeline&isappinstalled=0
+
+
+
+java  
+on heap   off heap
+
+
+
+堆外内存(off-heap)、堆内内存(on-heap)
+https://blog.csdn.net/universe_ant/article/details/52145450
+
+
+Spark2.x 内存管理之---OFF_HEAP
+https://blog.csdn.net/qq_21439395/article/details/80773121
+
+Spark Task 内存管理（on-heap&off-heap）
+https://www.jianshu.com/p/8f9ed2d58a26
+
+
+Spark如何解决常见的Top N问题
+http://www.cnblogs.com/yurunmiao/p/4898672.html
+
+
+
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+【源码剖析】- Spark 新旧内存管理方案（上）
+https://www.jianshu.com/p/2e9eda28e86c
+
+【源码剖析】- Spark 新旧内存管理方案（下）
+https://www.jianshu.com/p/bb0bdcb26ccc
+
+Spark Task 内存管理（on-heap&off-heap）
+https://www.jianshu.com/p/8f9ed2d58a26
+
+源碼解析  牛人博客
+https://www.jianshu.com/u/001d44710e2e
+
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
