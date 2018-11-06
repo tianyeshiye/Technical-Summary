@@ -1,0 +1,16 @@
+DevOps是一种思维方式。我们所有人都是该系统流程的一部分
+https://www.cnblogs.com/jetzhang/p/6068773.html
+
+
+HMaster/HRegion Server 工作原理
+https://www.cnblogs.com/yanzibuaa/p/7521624.html
+
+
+https://blog.csdn.net/xgjianstart/article/category/6564441
+
+
+https://blog.csdn.net/xgjianstart/article/details/68924401
+
+
+//9. 破患得患失，恐惧、贪婪，靠的是智慧而不是其他。看日线图，级别大点的，就可以忽略盘中的震荡。
+  // 3. 盘整总占居大多数的交易时间，不会利用盘整，基本还是属于不入流的。在盘整中，绝对不能小看小级别的背驰，特别是那种离开中产生的背驰。
