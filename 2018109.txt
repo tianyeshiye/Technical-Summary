@@ -110,3 +110,48 @@ https://blog.csdn.net/bao19901210/article/details/17201173
 java中注解的原理和实现机制
 https://blog.csdn.net/shuaipu813/article/details/52815432
 ****************************************************************
+
+
+****************************************************************
+****************************************************************
+****************************************************************
+JVM系列三:JVM参数设置、分析
+http://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html
+
+http://www.importnew.com/13954.html
+
+https://blog.csdn.net/qq595662096/article/details/81177744
+
+
+Spark Task 内存管理（on-heap&off-heap）
+https://www.jianshu.com/p/8f9ed2d58a26
+https://www.jianshu.com/u/001d44710e2e
+
+
+
+hdfs auditlog(审计日志)
+https://blog.csdn.net/zNZQhb07Nr/article/details/83027100
+https://my.oschina.net/u/3987818/blog/2223349
+http://www.linuxe.cn/post-255.html
+
+
+HDFS ZKFC自动切换原理分析
+https://blog.csdn.net/androidlushangderen/article/details/53148213
+https://blog.csdn.net/androidlushangderen/article/details/53148213
+
+简单HDFS使用Journalnode HA部署
+
+https://blog.csdn.net/gao634209276/article/details/51444572
+
+
+hadoop系列 第一坑： hdfs JournalNode Sync Status
+https://www.cnblogs.com/leocook/p/hadoop_faq001.html
+
+JVM 类加载机制详解
+http://www.importnew.com/25295.html
+
+JVM(四)—一道面试题搞懂JVM类加载机制
+https://blog.csdn.net/noaman_wgs/article/details/74489549
+
+
+
