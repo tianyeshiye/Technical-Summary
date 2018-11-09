@@ -277,13 +277,26 @@ producer向broker发送事件，consumer从broker消费事件。
 相同group中的consumer不能重复消费事件，而同一事件将会发送给每个不同group的consumer
 
 
---- 
+--- Zookeeper为HBase
+Zookeeper为HBase提供了稳定服务和failover机制
+Zookeeper也避免了HMaster的 单点问题
+Zookeeper管理是一个开源项目，提供服务，如维护配置信息，命名，提供分布式同步等
+HMaster通过Zookeeper来追踪HRegion Server的状态。
+https://www.cnblogs.com/yanzibuaa/p/7521624.html
 
---- 
+--- JournalNode
+新HDFS采用了一种共享机制，Quorum Journal Node（JournalNode）集群或者Nnetwork File System（NFS）进行共享
+NFS是操作系统层面的，JournalNode是hadoop层面的，我们这里使用JournalNode集群进行数据共享（这也是主流的做法）
+两个NameNode为了数据同步，会通过一组称作JournalNodes的独立进程进行相互通信
 
---- 
+--- Hadoop　ZooKeeper
+对于HA集群而言，确保同一时刻只有一个NameNode处于active状态是至关重要的。否则，两个NameNode的数据状态就会产生分歧，可能丢失数据，或者产生错误的结果。为了保证这点，这就需要利用使用ZooKeeper了。首先HDFS集群中的两个NameNode都在ZooKeeper中注册，当active状态的NameNode出故障时，ZooKeeper能检测到这种情况，它就会自动把standby状态的NameNode切换为active状态。
 
---- 
+--- spark工作机制
+用户在client端提交作业后，会由Driver运行main方法并创建spark context上下文。 
+执行add算子，形成dag图输入dagscheduler，按照add之间的依赖关系划分stage输入task scheduler。 
+task scheduler会将stage划分为task set分发到各个节点的executor中执行。
+
 
 --- 
 
