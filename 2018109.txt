@@ -1,0 +1,112 @@
+threshold   美 [ˈθreʃhoʊld]   adj.阈值的，临界值的
+
+Trash  废物；垃圾  
+
+decommission  美 [ˌdikəˈmɪʃən]  vt. 使退役  [VN] 正式停止使用
+
+utilization  美 [ˌjutɪlaɪˈzeʃən]   利用，使用，效用
+
+remaining   美 [ rɪˈmenɪŋ]   adj.剩余的，剩下的
+
+dispatcher   美 [dɪsˈpætʃɚ]    调度員
+
+FATAL    致命的
+
+allocate    美 ['æləkeɪtɪd]  分配
+
+Deprecate  美 [ˈdɛprɪˌket]  vt. 不赞成，反对
+
+Throughput  美 [ˈθruˌpʊt]    生产量，生产能力，吞吐量;流率  
+
+network topology  美 [tə'pɑ:lədʒɪ] 拓扑结构;  
+
+
+Job 4 finished: runJob at SparkHadoopWriter.scala:78, took 3.123075 s
+Job job_20181023225724_0008 committed.
+Merging data from DeprecatedRawLocalFileStatus
+
+spark源码action系列-saveAsHadoopDataset
+https://blog.csdn.net/u014393917/article/details/50607567
+
+*************************************************************************************************
+hadoop 分片、分区概念
+https://blog.csdn.net/lcalqf/article/details/80754204
+
+原
+Hadoop系列(8):数据存储之数据分区及放置策略
+https://blog.csdn.net/u010624618/article/details/79770473
+
+
+hadoop自带的 balancer解析
+https://blog.csdn.net/lcg910978041/article/details/52601540
+
+
+第131讲：Hadoop集群管理工具均衡器Balancer 实战详解学习笔记
+https://www.cnblogs.com/richard1023/p/4966996.html
+
+https://www.jianshu.com/p/f7c1cd476601
+https://blog.csdn.net/jiangshouzhuang/article/details/51879102
+*************************************************************************************************
+
+
+*************************************************************************************************
+hdfs空间不足的优化
+https://blog.csdn.net/silentwolfyh/article/details/53995576
+*************************************************************************************************
+
+
+*************************************************************************************************
+hdfs  分區存儲？？？？？？？？？？？？？？？？？
+*************************************************************************************************
+
+
+
+****************************************************************
+https://www.jianshu.com/p/1a58c642307f
+Java注解完全解析——运行时注解（RUNTIME）
+Java编译时注解自动生成代码
+https://blog.csdn.net/robertcpp/article/details/51628656
+https://blog.csdn.net/ryo1060732496/article/details/80891134
+深入浅出 java 注解-07-java 编译时注解介绍
+
+Java注解处理器--编译时处理的注解
+https://www.cnblogs.com/ganchuanpu/p/9020478.html
+
+Java 《注解篇》 运行时注解
+https://blog.csdn.net/qq_30889373/article/details/80461319
+
+Java注解解析-运行时注解详解(RUNTIME)
+https://blog.csdn.net/jsonchumpklutz/article/details/81747839
+
+自制aop和注解
+https://blog.csdn.net/ysj960120/article/details/78479260
+
+https://blog.csdn.net/fengchao2016/article/details/79015020
+AOP和Interceptor与java注解的结合使用
+
+Spring中自定义注解与AOP中获取注解
+https://blog.csdn.net/tanga842428/article/details/52870434
+
+https://www.cnblogs.com/biehongli/p/6640406.html
+
+java控制反转及依赖注入
+https://www.cnblogs.com/djtycm/p/7600960.html
+
+java中注解机制及其原理的详解
+https://www.jb51.net/article/125696.htm
+
+Java的注解机制——Spring自动装配的实现原理
+https://www.cnblogs.com/adolfmc/p/4383087.html
+
+
+Java注解的原理(通俗易懂)
+https://blog.csdn.net/u014563989/article/details/60570794
+
+
+Java自定义注解和运行时靠反射获取注解
+https://blog.csdn.net/bao19901210/article/details/17201173
+
+
+java中注解的原理和实现机制
+https://blog.csdn.net/shuaipu813/article/details/52815432
+****************************************************************
