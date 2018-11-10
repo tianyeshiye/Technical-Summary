@@ -1,2 +1,157 @@
 手写spring
 http://bbs.gupaoedu.com/forum.php?mod=viewthread&tid=572&highlight=spring
+
+1、
+源码 和 设计模式
+http://www.cnblogs.com/xdot/p/7802502.html
+https://download.csdn.net/download/gh786395613/9858249
+https://cn.aliyun.com/jiaocheng/1421412.html
+https://blog.csdn.net/springjavamybatis/article/details/81909872
+https://www.cnblogs.com/itbuyixiaogong/p/9060193.html
+https://my.oschina.net/u/3779583/blog/1645055
+
+
+粗粒度和细粒度 锁
+https://blog.csdn.net/qq_39949109/article/details/80603980
+https://www.cnblogs.com/robyn/p/3528316.html
+https://bbs.csdn.net/topics/40060194
+http://blog.sina.com.cn/s/blog_4eaff65601000bxg.html
+https://blog.csdn.net/liu20111590/article/details/53759463
+
+
+countdownlatch cyclicbarrier
+https://www.cnblogs.com/lizhangyong/p/8906774.html
+https://www.cnblogs.com/dolphin0520/p/3920397.html
+
+
+
+https://blog.csdn.net/bntX2jSQfEHy7/article/details/78237208
+https://blog.csdn.net/zzg1229059735/article/details/61191679
+https://www.jianshu.com/p/bce9f156080f
+
+
+、nignx
+https://www.cnblogs.com/wcwnina/p/8728391.html
+tengine
+http://tengine.taobao.org/
+
+
+Spark 面试题
+https://blog.csdn.net/qq595662096/article/details/81177744
+3、多Master如何配置
+
+
+
+
+
+spark 自己的分布式存储系统 - BlockManager
+http://coolplayer.net/2017/03/30/spark-%E8%87%AA%E5%B7%B1%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F-BlockManager/
+
+[spark] BlockManager 解析
+https://blog.csdn.net/UUfFO/article/details/78572472
+
+spark源码学习（十）--- blockManager分析
+https://blog.csdn.net/englishsname/article/details/50783240
+
+Spark自己的分布式存储系统BlockManager全解析
+https://www.sohu.com/a/132359011_470008
+
+【源码剖析】- Spark 新旧内存管理方案（上）
+https://www.jianshu.com/p/2e9eda28e86c
+
+
+
+
+Spark Shuffle之Hash Shuffle
+https://blog.csdn.net/u011564172/article/details/71170234
+
+https://www.cnblogs.com/itboys/tag/Spark%E6%BA%90%E7%A0%81/default.html?page=2
+
+Spark Shuffle概述
+https://blog.csdn.net/u011564172/article/details/71170221
+
+Spark RDD之Partition
+https://blog.csdn.net/u011564172/article/details/53611109
+
+
+
+服务 降级 熔断 限流
+
+
+eurake zookeeper
+SOA之路 -- 为什么Eureka比ZooKeeper更适合做服务发现与注册服务
+https://blog.csdn.net/coorz/article/details/70921252
+
+
+ZooKeeper、Eureka对比
+https://www.cnblogs.com/jieqing/p/8394001.html
+
+
+
+阀值和阈值有什么区别 
+https://zhidao.baidu.com/question/2270989453833084948.html
+
+
+
+分库分表问题   唯一性id ????
+
+分库分表之后分布式如何保证ID全局唯一性
+https://blog.csdn.net/xiao__jia__jia/article/details/81150112
+
+
+分库分表需要考虑的问题及方案
+https://www.jianshu.com/p/32b3e91aa22c?from=timeline
+
+
+分库分表带来的完整性和一致性问题
+https://www.cnblogs.com/aigongsi/archive/2013/01/25/2875731.html
+
+
+
+
+zookeeper watch  分布式锁 ????????
+基于zookeeper简单实现分布式锁
+https://blog.csdn.net/desilting/article/details/41280869
+
+zookeeper分布式锁实现原理
+https://blog.csdn.net/varyall/article/details/82528107
+
+Zookeeper实现分布式锁
+https://www.jianshu.com/p/5d12a01018e1
+
+
+setnx redis lua？？？？？？？
+
+基于Redis Lua脚本实现的分布式锁
+http://ju.outofmemory.cn/entry/74765
+
+在redis中使用lua脚本让你的灵活性提高5个逼格
+https://www.cnblogs.com/huangxincheng/p/6230129.html
+
+
+
+
+clover分布式任务调度系统
+https://blog.csdn.net/stark_summer/article/details/43449621
+
+
+年薪 30W 和 60W，数据分析师的两道坎
+https://blog.csdn.net/P5dEyT322JACS/article/details/78488103
+
+
+
+jvm  
+https://blog.csdn.net/lojze_ly/article/details/49456255
+聊聊JVM的年轻代
+http://ifeve.com/jvm-yong-generation/
+
+
+
+为什么新生代内存需要有两个Survivor区
+https://blog.csdn.net/antony9118/article/details/51425581
+
+
+
+牛人博客
+http://ifeve.com/author/26793713/
+
