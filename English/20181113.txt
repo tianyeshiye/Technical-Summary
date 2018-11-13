@@ -1,0 +1,66 @@
+Identity 
+scale
+discovery
+registration
+delivery services
+persistent
+Telemetry 
+simplistic 
+intelligent
+Storage
+deployment
+
+
+
+Assert   [əˈsɜ:rt]   vt.声称，断言;维护，坚持
+
+Verify    美 [ˈvɛrəˌfaɪ]   vt.核实;证明;判定
+
+committer  提交者;贡献者
+
+Assume   美 [əˈsu:m]  v.
+承担;呈现;假定，认为;装出
+
+Consistent Hashing
+Eventual Consistency
+Quorum 仲裁协议
+integrity checking
+Authentication Serve
+Auditor
+modernize 
+fluent 
+
+For more information come hang out in #openstack-swift on freenode.
+
+
+DevOps的定义
+https://blog.csdn.net/chengqiuming/article/details/81709336
+
+
+Hadoop学习笔记（三）漫画解读HDFS读写原理
+https://www.jianshu.com/p/a0f170436cbe
+
+
+Apache Thrift学习之二（基础及原理）
+https://www.cnblogs.com/duanxz/p/5514190.html
+
+
+http://www.ruanyifeng.com/blog/2018/07/cap.html
+
+
+swift Endlish demo
+https://www.swiftstack.com/product/demos
+
+
+https://www.cnblogs.com/xiaobaishuowoshigou/articles/4882229.html
+
+原
+Spark修炼之道（高级篇）——Spark源码阅读：第三节 Spark Job的提交
+
+
+基于Hadoop和Openstack云存储的研究(HDFS和Swift对比)
+https://blog.csdn.net/lanceyang1992/article/details/46456399
+
+一篇評價好的文章swift
+https://blog.csdn.net/duxingxia356/article/details/41346997
+https://blog.csdn.net/lovehuangjiaju/article/details/49256603
