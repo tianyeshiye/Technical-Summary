@@ -1,0 +1,43 @@
+Identity
+scale
+discovery
+registration
+delivery services
+persistent
+Telemetry
+simplistic
+intelligent
+Storage
+deployment
+Assert
+Verify
+committer
+Assume
+Consistent
+Eventual
+Consistency
+integrity
+checking
+Authentication
+Auditor
+modernize
+fluent
+hang out
+Minor
+Tenured
+Survivor
+Eden
+lineage
+runtime
+common language runtime
+threshold
+Trash
+decommission
+utilization
+remaining
+dispatcher
+FATAL
+allocate
+Deprecate
+Throughput
+network topology

@@ -1,26 +1,4 @@
-threshold   美 [ˈθreʃhoʊld]   adj.阈值的，临界值的
-
-Trash  废物；垃圾  
-
-decommission  美 [ˌdikəˈmɪʃən]  vt. 使退役  [VN] 正式停止使用
-
-utilization  美 [ˌjutɪlaɪˈzeʃən]   利用，使用，效用
-
-remaining   美 [ rɪˈmenɪŋ]   adj.剩余的，剩下的
-
-dispatcher   美 [dɪsˈpætʃɚ]    调度員
-
-FATAL    致命的
-
-allocate    美 ['æləkeɪtɪd]  分配
-
-Deprecate  美 [ˈdɛprɪˌket]  vt. 不赞成，反对
-
-Throughput  美 [ˈθruˌpʊt]    生产量，生产能力，吞吐量;流率  
-
-network topology  美 [tə'pɑ:lədʒɪ] 拓扑结构;  
-
-
+﻿
 Job 4 finished: runJob at SparkHadoopWriter.scala:78, took 3.123075 s
 Job job_20181023225724_0008 committed.
 Merging data from DeprecatedRawLocalFileStatus
