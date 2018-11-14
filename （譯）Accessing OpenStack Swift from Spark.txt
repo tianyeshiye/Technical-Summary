@@ -1,0 +1,92 @@
+訪問 Swift from spark
+
+Spads支持Hadoop输入格式，允许它使用与Hadoop中相同的URI格式处理OpenStack SWIFT中的数据。
+您可以指定一个路径，在SWIFT中，它是通过一个URI像WIFT://Culv.Poovule/Purl的。
+通过core-site.xml or via SparkContext.hadoopConfiguration,您还需要设置快速安全凭据。
+当前Swift驱动程序需要使用 Keystone 身份验证方法或其 Rackspace-specific predecessor。
+
+配置SWIFT以获得更好的数据本地性
+雖然不是强制性的，建议配置SWIFT代理服务器，使用 list_endpoints 获得更好的数据本地性，
+更多的信息請看https://github.com/openstack/swift/blob/master/swift/common/middleware/list_endpoints.py
+
+
+依赖关系
+Spark应用程序应该包括 hadoop-openstack 依赖关系,
+可以添加 hadoop-cloud 模塊，spark使用的版本。
+例如，maven的支持，可以添加下面内容到 pom.xml
+
+<dependencyManagement>
+  ...
+  <dependency>
+    <groupId>org.apache.spark</groupId>
+    <artifactId>hadoop-cloud_2.11</artifactId>
+    <version>${spark.version}</version>
+  </dependency>
+  ...
+</dependencyManagement>
+
+配置参数
+創建 core-site.xml， 然後把它放在spark的conf目录内。
+應該被配置主要的配置參數是Keystone的验证参数
+下表包含一个Keystone强制参数列表。
+
+Keystone作为 OpenStack 的基础支持服务，Keystone 做下面这几件事情：
+管理用户及其权限
+维护 OpenStack Services 的 Endpoint
+Authentication（认证）和 Authorization（鉴权）
+https://www.cnblogs.com/CloudMan6/p/5365474.html
+
+
+
+例如 ，假定P ROVIDER=SparkTest  和  keystore 包含 用戶user 密碼testing 為 租戶test。
+core-site.xml 應該包括如下配置
+<configuration>
+  <property>
+    <name>fs.swift.service.SparkTest.auth.url</name>
+    <value>http://127.0.0.1:5000/v2.0/tokens</value>
+  </property>
+  <property>
+    <name>fs.swift.service.SparkTest.auth.endpoint.prefix</name>
+    <value>endpoints</value>
+  </property>
+    <name>fs.swift.service.SparkTest.http.port</name>
+    <value>8080</value>
+  </property>
+  <property>
+    <name>fs.swift.service.SparkTest.region</name>
+    <value>RegionOne</value>
+  </property>
+  <property>
+    <name>fs.swift.service.SparkTest.public</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>fs.swift.service.SparkTest.tenant</name>
+    <value>test</value>
+  </property>
+  <property>
+    <name>fs.swift.service.SparkTest.username</name>
+    <value>tester</value>
+  </property>
+  <property>
+    <name>fs.swift.service.SparkTest.password</name>
+    <value>testing</value>
+  </property>
+</configuration>
+
+
+注意fs.swift.service.PROVIDER.tenant, fs.swift.service.PROVIDER.username, fs.swift.service.PROVIDER.password 
+包括敏感信息，
+保存他們在core-site.xml 不是一個很好的選擇。
+我們建議保存這些參數在core-site.xml是爲了測試目的 
+生產環境最好通過sparkContext.hadoopConfiguration設置
+
+
+
+
+
+swift endpoint
+endpoint_template = 'http://{ip}:{port}/{device}/{partition}/{account}/{container}'
+
+
+https://developer.ibm.com/answers/questions/242669/how-do-i-access-the-swift-file-system-in-the-new-a/
