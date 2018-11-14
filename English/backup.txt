@@ -1,0 +1,10 @@
+How NOT to pull from S3 using Apache Spark
+https://tech.kinja.com/how-not-to-pull-from-s3-using-apache-spark-1704509219
+https://gist.githubusercontent.com/pjrt/f1cad93b154ac8958e65/raw/7b0b764408f145f51477dc05ef1a99e8448bce6d/S3Puller.scala
+具體是說spark使用textFiles 讀取S3上的文件會有意想不到的問題
+解決辦法是使用S3客戶端API并行讀取s3上的文件
+問題的英文描述
+This worked fine at first but as the dataset grew we noticed that there would always be a large period of inactivity between jobs.
+
+
+https://github.com/CODAIT/stocator
