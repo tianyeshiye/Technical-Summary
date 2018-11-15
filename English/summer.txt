@@ -1,0 +1,36 @@
+------ 什么是动态代理
+目的：主要用来做方法的增强，让你可以在不修改源码（不用改变这个方法的签名，原来调用这个方法的类依然能正常工作）的情况下，增强一些方法。
+
+目前Java开发包中包含了对动态代理的支持，但是其实现只支持对接口的的实现。 其实现主要通过java.lang.reflect.Proxy类和java.lang.reflect.InvocationHandler接口。 
+Proxy类主要用来获取动态代理对象，InvocationHandler接口用来约束调用者实现
+
+---------------------------------Spring  源碼 start---------------------------------
+------ Spring Ioc
+BeanFactory
+到此为止，我们初步知道BeanFactory的功能了，
+对外，他就是一个容器的“勺子”可以帮我们从Spring这个容器里获取我们要的Bean，
+对内，他也有去注册，消除注册，维护一些bean的信息等一些功能，它可以很好的维护容器中的beanDefinition
+
+DefaultListableBeanFactory
+BeanDefinitionMap = new ConcurrentHashMap(
+
+------ 浅析Spring IoC源码（二）BeanFactory初始化
+
+
+BeanFactory有2个角色
+
+
+
+------ JdkDynamicAopProxy
+
+---------------------------------Spring  源碼 end ---------------------------------
+
+
+
+
+
+
+
+
+
+
