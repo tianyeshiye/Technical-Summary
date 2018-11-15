@@ -1,0 +1,30 @@
+
+
+
+Inversion of Control
+slow you down
+low latency and a fast network
+rely on
+
+*********************************** blog ********************************
+InvocationHandler和Proxy(Class)的动态代理机制详解
+https://blog.csdn.net/u012033124/article/details/53645727?utm_source=itdadao&utm_medium=referral
+
+https://www.jianshu.com/p/b72f66da679f
+基于Java Instrument的Agent实现
+
+
+*********************************** blog ********************************
+
+
+計算和存儲分離的 評價
+This is the disaggregation of compute and storage. 
+That is, the spark compute nodes are not at all shared with the swift cluster storage nodes. 
+This confers benefits on scalability of compute separate from storage, and vice versa. 
+But in this model, you cannot have data locality ... by definition. 
+So how this works, roughly, is that each spark executor can pull its own range of blocks of the object from the swift cluster, 
+such that each executor does not need to pull in all the object data only operate on its own portion; 
+which would be inefficient. 
+But the blocks are still pulled from the remote swift cluster, then are not local. The only question here is how long it takes to pull the blocks into each executor so that doesn't slow you down. In the case of the Bluemix Apache Spark Service and the Bluemix or Softlayer Object Storage service, there is low latency and a fast network between them.
+
+re: "Since the IBM Cloud relies on OpenStack Swift as Data Storage for this service". There will be other data sources available to the spark service as the beta progresses, so it will not be 100% reliance.
