@@ -27,6 +27,7 @@ Instrument
 definition
 Enhancer
 Advisor
+sticky
 
 
 Inversion of Control
@@ -40,6 +41,20 @@ https://blog.csdn.net/u012033124/article/details/53645727?utm_source=itdadao&utm
 
 https://www.jianshu.com/p/b72f66da679f
 基于Java Instrument的Agent实现
+
+
+块存储、文件存储、对象存储意义及差异
+https://www.cnblogs.com/hukey/p/8323853.html
+
+块储存、对象存储、文件存储的区别和联系
+https://blog.csdn.net/qq_23348071/article/details/70232735
+
+
+
+
+https://blog.csdn.net/pi9nc/article/details/14139465
+[命令技巧]chmod & Set-User-ID & Set-Group-ID
+
 *********************************** blog ********************************
 
 
