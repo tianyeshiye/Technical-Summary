@@ -1,0 +1,170 @@
+Retention
+propagation
+isolation
+interceptor
+Multi
+Concurrency
+mandatory
+nested
+instrument
+discard
+retain
+Retention
+Indicate
+Constructor
+declaration
+Alias
+Inherited
+Declared
+Override
+
+
+
+MVCC,Multi Version Concurrency Control
+
+
+問題 1 
+爲什麽spark生成parquet文件比avro,sqquence文件慢
+答：
+爲了查詢處理效率，生成parquet文件時預熱了一些信息，并存存儲到了文件裏面
+如 parquet 文件的 pushdown 功能
+
+問題2 
+spark 往HDFS上，存儲1TB文件， 
+分10個區做存儲快速
+還是分100個區存儲快速
+有什麽前提麽？
+答：
+在core數量足夠的情況下，100個多并發的時候，存儲速度快
+
+問題3
+java 注解的本質是什麽？
+答：
+
+
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊   blog   ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+
+1
+spring事物
+   總結 ： 用配置的方式 解決事物問題，注解 + 配置文件
+
+簡單的事物應用，簡單實例
+https://blog.csdn.net/linuu/article/details/51003110
+spring事务的传播行为
+即是解決，多個操作閒的事物并發問題
+如操作A ，B等
+A，B在同一個事物中   --- 处于同一事务上下文中，回滚统一回滚
+A，B在不同的事物中   ---各自发生异常，各自回滚
+B嵌套在A的事物中     ---A回滚，则B回滚  B自己发生异常，则自己回滚  
+
+
+https://blog.csdn.net/linuu/article/details/51006780
+spring事务隔离级别
+     總結：爲了解決 數據的并發問題，以及讀取的内容是否是最新
+     1 末提交讀 2 提交讀  3 可重複讀  4 可串行化
+https://blog.csdn.net/linuu/article/details/50790858
+
+總結 ：讀寫分離， 效率
+1.1   多版本并發控制  MVCC
+只需要很小的开销,就可以实现非锁定读，从而大大提高数据库系统的并发性能
+【mysql】关于innodb中MVCC的一些理解
+https://www.cnblogs.com/chenpingzhao/p/5065316.html
+https://www.cnblogs.com/YFYkuner/p/5178684.html
+
+2  spring 事物實現原理
+springAOP  +  注解
+
+AopProxy？？？？？？
+
+
+
+3 
+
+元注解   
+documented target inherited  rentention
+
+AnnotationInvocationHandler
+
+注解处理器(Annotation Processor)
+这里定义一个注解处理器 MyProcessor，每一个处理器都是继承于AbstractProcessor，并要求必须复写 process() 方法，
+
+注解的真正本質
+？？？？？？？？？？？
+  2.1 注解 運行時 和 編譯時
+
+注解@Retention的作用
+https://blog.csdn.net/u010002184/article/details/79166478
+
+https://blog.csdn.net/u011315960/article/details/64918467
+深入理解编译注解（五）RetentionPolicy.SOURCE 和 RetentionPolicy.CLASS区别讨论
+
+自定义注解之编译时注解(RetentionPolicy.CLASS)（一）
+自定義注解，注解處理器
+https://blog.csdn.net/github_35180164/article/details/52121038
+
+好好看看
+https://blog.csdn.net/github_35180164/article/category/6346819
+
+Java中的注解是如何工作的？
+http://www.importnew.com/10294.html
+
+Java注解基本原理
+https://www.cnblogs.com/huajiezh/p/5263849.html
+
+AnnotationInvocationHandler
+注解Annotation实现原理与自定义注解例子  好
+https://www.cnblogs.com/acm-bingzi/p/javaAnnotation.html
+
+java注解的实质，何为注解  好
+https://www.cnblogs.com/smuxiaolei/p/9227513.html
+
+秒懂，Java 注解 
+https://blog.csdn.net/briblue/article/details/73824058/
+
+
+4 
+思想 雜談
+思考，  總結， 原則， 執行，
+如此循環
+PDCA
+https://new.qq.com/omn/20180819/20180819A1GMLX.html
+
+
+4.1   
+雜談
+情商交際訓練術
+人的分類，于應對分類
+1，大衆情人行
+2，溜鬚拍馬行
+3，默默無聞行
+4，内向型
+5，外向型
+6，領導型
+7，輔助性
+8，主動性
+9，被動型
+
+
+4.3
+大家爲什麽喜歡看小説的原因， 終於找到到了正解
+來源於 吳軍
+
+現實生活中的不如意，大俠的快意恩仇
+
+
+
+
+５
+分庫分表
+深度认识 Sharding-JDBC：做最轻量级的数据库中间层
+https://www.cnblogs.com/yeahwell/p/7920383.html
+Sharding-JDBC介绍
+https://cn.aliyun.com/jiaocheng/774911.html
+
+
+
+6  
+instrumentation
+一种虚拟机级别支持的 AOP 实现方式
+
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊   blog   ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
