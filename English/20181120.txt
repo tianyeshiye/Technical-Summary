@@ -1,0 +1,64 @@
+buddy
+dashboard
+Architecture
+Implementation
+Features
+ticky
+Tenant
+Credentials
+Identity
+Consistency
+Durability
+
+
+
+*********************************blog ********************************
+
+swift 于 hdfs 的差異
+基于Hadoop和Openstack云存储的研究(HDFS和Swift对比)
+HDFS 中一次只能写入一个文件，不支持多用户并发写入
+支持对文件多用户并发写入，但Swift 没有目录结构，不支持嵌套
+https://blog.csdn.net/lanceyang1992/article/details/46456399
+一个Swift 对象适配器（Adapter）
+
+
+
+　无单点故障
+
+　　在互联网业务大规模应用的场景中，存储的单点一直是个难题。
+  例如数据库，一般的HA方法只能做主从，并且“主”一般只有一个;
+  还有一些其他开源存储系统的实现中，元数据信息的存储一直以来是个头痛的地方，
+  一般只能单点存储，而这个单点很容易成为瓶颈，并且一旦这个点出现差异，
+  往往能影响到整个集群，典型的如HDFS。而Swift的元数据存储是完全均匀随机分布的，
+  并且与对象文件存储一样，元数据也会存储多份。整个Swift集群中，也没有一个角色是单点的，
+  并且在架构和设计上保证无单点业务是有效的。
+
+
+
+
+Window10使用Minikube快速搭建Kubernetes环境
+https://blog.csdn.net/Maggie_up/article/details/80738331
+
+（Kubernetes）k8s和docker的关系
+https://blog.csdn.net/liangkaiping0525/article/details/82729076
+
+
+slurm用户快速入门手册
+https://www.cnblogs.com/liwanliangblog/p/9203907.html
+
+
+*********************************blog ********************************
+
+
+
+
+openstack-on-centos
+https://openstack-on-centos6.readthedocs.io/en/latest/prepare.html
+
+
+OpenStack + 三节点Swift 集群+ HAProxy + UCARP 安装和配置 
+http://www.cnblogs.com/sammyliu/p/4923432.html
+原理、架构和性能
+http://www.cnblogs.com/sammyliu/p/4955241.html
+监控
+http://www.cnblogs.com/sammyliu/p/4964528.html
