@@ -1,0 +1,21 @@
+verbose
+ignored
+removal
+
+
+
+openstack install
+https://docs.openstack.org/liberty/zh_CN/install-guide-ubuntu/keystone-users.html
+
+"*****************************************:blog*************************************
+
+MySQL 初识 performance_schema
+https://blog.csdn.net/dream361/article/details/75195791
+
+
+
+
+redis和memcached的区别（总结）
+https://www.cnblogs.com/457248499-qq-com/p/7392653.html
+
+https://blog.csdn.net/u011489043/article/details/78922390
