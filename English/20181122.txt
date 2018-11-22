@@ -1,0 +1,47 @@
+stable
+Dashboard
+
+
+
+
+
+***************************  blog ****************************
+
+
+Openstack 之分布式存储技术比较
+http://cloud.51cto.com/art/201505/476885.htm
+
+
+
+初试 Ceph 存储之块设备、文件系统、对象存储
+https://blog.csdn.net/aixiaoyang168/article/details/78825850
+
+http://docs.ceph.org.cn/releases/
+
+https://wenku.baidu.com/view/d3ebf67c3b3567ec102d8ac4.html
+
+
+*****************************blog *************************
+
+
+redis和memcached的区别（总结）
+https://www.cnblogs.com/457248499-qq-com/p/7392653.html
+
+
+https://blog.csdn.net/rosanu_blog/article/details/68066756
+redis集群（Sharding）和在线扩容（Pre-Sharding）
+
+https://blog.csdn.net/shmnh/article/details/72868328
+
+
+*****************************blog *************************
+openstack的用户（user）, 租户（tenant）, 角色（role）概念区分
+https://blog.csdn.net/abc1235678/article/details/51955050
+身份认证服务为每个OpenStack服务提供认证服务。认证服务使用 T domains， projects (tenants)， :term:`users<user>`和 :term:`roles<role>`的组合。
+
+
+
+OpenStack Keystone V3 简介
+https://www.ibm.com/developerworks/cn/cloud/library/1506_yuwz_keystonev3/index.html
+
+*****************************blog *************************
