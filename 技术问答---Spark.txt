@@ -66,8 +66,8 @@ rdd执行过程中会形成dag图，然后形成lineage保证容错性等。
 --- spark工作机制
 
 1、用户在client端提交作业后，
-2、会由Driver运行main方法并创建spark context上下文。 执行add算子，形成dag图输入dagscheduler，
-3、按照add之间的依赖关系划分stage输入task scheduler。 
+2、会由Driver运行main方法并创建spark context上下文。 执行add算子，形成dag图输入DAGScheduler，
+3、按照RDD之间的依赖关系划分stage输入task scheduler。 
 4、task scheduler会将stage划分为task set分发到各个节点的executor中执行
 
 
@@ -105,15 +105,11 @@ spark.sql.shuffle.partitions 50 spark.default.parallelism 10
 第二个是非spark sql程序设置生效
 
 
---- RDD有哪些缺陷
-1）不支持细粒度的写和更新操作（如网络爬虫），spark写数据是粗粒度的
-所谓粗粒度，就是批量写入数据，为了提高效率。但是读数据是细粒度的也就是
-说可以一条条的读
-2）不支持增量迭代计算，Flink支持
-
 --- 你如何从Kafka中获取数据
 基于Direct的方式
-这种新的不基于Receiver的直接方式，是在Spark 1.3中引入的，从而能够确保更加健壮的机制。替代掉使用Receiver来接收数据后，这种方式会周期性地查询Kafka，来获得每个topic+partition的最新的offset，从而定义每个batch的offset的范围。当处理数据的job启动时，就会使用Kafka的简单consumer api来获取Kafka指定offset范围的数据
+这种新的不基于Receiver的直接方式，是在Spark 1.3中引入的，从而能够确保更加健壮的机制。
+替代掉使用Receiver来接收数据后，这种方式会周期性地查询Kafka，来获得每个topic+partition的最新的offset，从而定义每个batch的offset的范围。
+当处理数据的job启动时，就会使用Kafka的简单consumer api来获取Kafka指定offset范围的数据
 
 
 --- Spark中数据的位置是被谁管理的
