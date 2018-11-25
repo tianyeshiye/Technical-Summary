@@ -1,0 +1,4 @@
+---
+allow_duplicates: yes
+dependencies:
+- { role: cdh5_spark }

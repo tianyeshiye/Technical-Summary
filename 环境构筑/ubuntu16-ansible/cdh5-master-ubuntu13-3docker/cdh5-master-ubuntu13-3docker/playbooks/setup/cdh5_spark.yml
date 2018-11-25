@@ -1,0 +1,7 @@
+- hosts: spark_master
+  roles:
+    - cdh5_spark
+
+- hosts: spark_worker
+  roles:
+    - cdh5_spark

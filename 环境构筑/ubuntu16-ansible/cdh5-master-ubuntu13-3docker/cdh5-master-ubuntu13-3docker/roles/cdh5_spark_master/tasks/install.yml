@@ -1,0 +1,5 @@
+- name: install_spark_master
+  apt: name={{ item }} state=installed
+  with_items:
+  - spark-core
+  - spark-python

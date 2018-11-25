@@ -1,0 +1,4 @@
+- hosts: hadoop_namenode
+  roles:
+    - cdh5_base
+    - cdh5_namenode

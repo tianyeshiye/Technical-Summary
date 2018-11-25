@@ -1,0 +1,2 @@
+- include: install.yml tags=install,cdh5_spark_master
+- include: init.yml tags=init,cdh5_spark_master

@@ -1,0 +1,38 @@
+- name: make_user_dir
+  shell: sudo -u hdfs hadoop fs -mkdir -p /user/{{ item }}
+  with_items: 
+    - '{{ user_list }}'
+  when: user_list is defined
+
+- name: chown_user_dir
+  shell: sudo -u hdfs hadoop fs -chown -R {{ item }} /user/{{ item }}
+  with_items: 
+    - '{{ user_list }}'
+  when: user_list is defined
+
+- name: make_admin_user_dir
+  shell: sudo -u hdfs hadoop fs -mkdir -p /user/{{ item }}
+  with_items: 
+    - '{{ admin_list }}'
+  when: user_admin_list is defined
+
+- name: chown_admin_user_dir
+  shell: sudo -u hdfs hadoop fs -chown -R {{ item }} /user/{{ item }}
+  with_items: 
+    - '{{ admin_list }}'
+  when: user_admin_list is defined
+
+- name: mkdir cdh5_hdfs_dir
+  shell: sudo -u hdfs hadoop fs -mkdir -p {{ item }} 
+  with_items: 
+    - '{{ cdh5_yarn_nm_intermediate_dir }}'
+    - '{{ cdh5_yarn_nm_log_dir }}'
+    - '{{ cdh5_yarn_nm_tmp_dir }}'
+    - '{{ cdh5_yarn_nm_intermediate_dir }}'
+
+- name: chown cdh5_yarn_nm_intermediate_dir
+  shell: sudo -u hdfs hadoop fs -chown -R yarn {{ cdh5_yarn_nm_staging_dir }} 
+
+- name: chmod cdh5_yarn_nm_tmp_dir
+  shell: sudo -u hdfs hadoop fs -chmod -R 1777 {{ cdh5_yarn_nm_tmp_dir }} 
+

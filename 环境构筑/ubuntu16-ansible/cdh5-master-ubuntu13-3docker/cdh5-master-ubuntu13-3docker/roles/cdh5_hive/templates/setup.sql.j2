@@ -1,0 +1,14 @@
+DROP USER IF EXISTS {{ cdh5_hiveuser }};
+DROP DATABASE IF EXISTS {{ cdh5_metastore }};
+CREATE USER {{ cdh5_hiveuser }} WITH PASSWORD '{{ cdh5_hiveuser_pwd }}';
+CREATE DATABASE {{ cdh5_metastore }};
+\c '{{ cdh5_metastore }}';
+\i /usr/lib/hive/scripts/metastore/upgrade/postgres/hive-schema-{{ cdh5_hive_schema_version }}.postgres.sql
+\pset tuples_only on
+\o /tmp/grant-privs
+SELECT 'GRANT SELECT,INSERT,UPDATE,DELETE ON "'  || schemaname || '". "' ||tablename ||'" TO {{ cdh5_hiveuser }} ;'
+FROM pg_tables
+WHERE tableowner = CURRENT_USER and schemaname = 'public';
+\o
+\pset tuples_only off
+\i /tmp/grant-privs

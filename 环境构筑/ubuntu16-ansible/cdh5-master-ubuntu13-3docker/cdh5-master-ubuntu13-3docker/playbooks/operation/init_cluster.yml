@@ -1,0 +1,6 @@
+- include: init_namenode.yml
+- include: init_datanode.yml
+- include: format_hdfs.yml
+#- include: init_zkfc.yml
+- include: init_spark.yml
+#- include: init_hbase.yml

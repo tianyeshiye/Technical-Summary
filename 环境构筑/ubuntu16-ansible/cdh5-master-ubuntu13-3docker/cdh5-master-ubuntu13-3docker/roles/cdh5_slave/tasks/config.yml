@@ -1,0 +1,33 @@
+- name: remove_data_dir
+  file: path={{ item }} state=absent force=yes
+  ignore_errors: yes
+  with_items:
+      - '{{ cdh5_dfs_dn_data_dir_list }}'
+
+- name: make_datanode_data_dir
+  file: path={{ item }} state=directory owner=hdfs group=hadoop mode=700
+  with_items: '{{ cdh5_dfs_dn_data_dir_list }}'
+
+- name: make_mr_task_tmp_dir
+  file: path={{ cdh5_mr_mapreduce_task_tmp_dir }} state=directory owner=mapred group=hadoop mode=777
+
+- name: make_nm_log_dirs
+  file: path={{ item }} state=directory owner=yarn group=hadoop mode=775 recurse=yes
+  with_items: '{{ cdh5_yarn_nm_log_dirs_list }}'
+
+- name: make_nm_local_dirs
+  file: path={{ item }} state=directory owner=yarn group=hadoop mode=775 recurse=yes
+  with_items: '{{ cdh5_yarn_nm_local_dirs_list }}'
+
+- name: make_app_log_dirs
+  file: path={{ cdh5_yarn_nm_remote_app_log_dir }} state=directory owner=yarn group=hadoop mode=775
+
+- name: chmod_data_dir
+  file: path={{ item }} state=directory owner=hdfs group=hadoop mode=777 recurse=no
+  with_items: '{{ cdh5_data_dir_list }}'
+
+- name: stop_daemons
+  service: name={{ item }} state=stopped
+  with_items:
+    - hadoop-hdfs-datanode
+

@@ -1,0 +1,4 @@
+- hosts: hive_server2
+  roles:
+#    - cdh5_spark
+    - cdh5_hive

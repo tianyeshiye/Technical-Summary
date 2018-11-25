@@ -1,0 +1,20 @@
+#- include: proxy.yml
+
+- include: common.yml
+- include: cdh5_zookeeper.yml
+- include: cdh5_namenode.yml
+- include: cdh5_resourcemanager.yml
+- include: cdh5_slave.yml
+- include: cdh5_format.yml
+- include: cdh5_init.yml
+
+- include: cdh5_spark_worker.yml
+- include: cdh5_spark_master.yml
+- include: cdh5_spark_history.yml
+
+- include: cdh5_kafka.yml
+
+- include: cdh5_hbase_master.yml
+- include: cdh5_hbase_slave.yml
+
+- include: cdh5_hive.yml

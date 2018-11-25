@@ -1,0 +1,20 @@
+- name: copy_xml_files
+  template: src={{ item }}.j2 dest=/etc/hadoop/conf/{{ item }}
+  with_items:
+    - core-site.xml
+    - hdfs-site.xml
+    - yarn-site.xml
+    - mapred-site.xml
+    - hadoop-metrics2.properties
+
+- name: chmod_xml_files
+  file: path=/etc/hadoop/conf/{{ item }} mode=644 owner=hdfs
+  with_items:
+    - core-site.xml
+    - hdfs-site.xml
+    - yarn-site.xml
+    - mapred-site.xml
+    - hadoop-metrics2.properties
+
+- name: copy_sudoersd_config
+  template: src=hadoop.j2 dest=/etc/sudoers.d/hadoop

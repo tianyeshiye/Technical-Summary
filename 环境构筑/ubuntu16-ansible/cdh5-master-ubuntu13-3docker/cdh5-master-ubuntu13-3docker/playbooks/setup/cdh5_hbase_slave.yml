@@ -1,0 +1,4 @@
+- hosts: hbase_regionserver
+  roles:
+    - cdh5_base
+    - cdh5_hbase_slave

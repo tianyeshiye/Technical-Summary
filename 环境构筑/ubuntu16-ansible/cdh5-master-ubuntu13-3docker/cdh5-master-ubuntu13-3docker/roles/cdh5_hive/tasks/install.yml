@@ -1,0 +1,7 @@
+- name: install_hiveserver_packages
+  apt: name={{ item }} state=installed
+  with_items:
+  - hive
+  - hive-server2
+  - postgresql
+  - libpostgresql-jdbc-java

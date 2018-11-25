@@ -1,0 +1,4 @@
+- hosts: all:!localhost
+  roles:
+    - jdk
+    - { role: common, common_config_hostname: True }

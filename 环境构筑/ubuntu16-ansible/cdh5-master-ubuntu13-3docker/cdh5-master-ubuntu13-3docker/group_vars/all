@@ -1,0 +1,12 @@
+repo: http://archive.cloudera.com/cdh5/ubuntu/trusty/amd64/cdh/ trusty-cdh5.8 contrib
+cdh5_wait_for_timeout: '120'
+ha_enabled: false
+
+kafka_version: 0.10.2.1
+apache_mirror: apache.mirror.anlx.net
+kafka_port: 9092
+zookeeper_client_port: 2181
+
+# set to true to show host variables
+debug: false
+

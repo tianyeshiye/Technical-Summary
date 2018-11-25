@@ -1,0 +1,3 @@
+- name: start spark_history_server
+  service: name=spark-history-server state=started enabled=yes
+

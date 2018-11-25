@@ -1,0 +1,16 @@
+- hosts: hbase_master
+  gather_facts: no
+  tasks:
+    - name: start_daemons
+      service: name={{ item }} state=started
+      with_items:
+        - hbase-master
+
+- hosts: hbase_regionserver
+  gather_facts: no
+  tasks:
+    - name: start_daemons
+      service: name={{ item }} state=started
+      with_items:
+        - hbase-regionserver
+

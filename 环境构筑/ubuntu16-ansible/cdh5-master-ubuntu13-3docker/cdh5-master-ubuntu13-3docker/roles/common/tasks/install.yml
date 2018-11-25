@@ -1,0 +1,24 @@
+- name: install_common_softwares
+  apt: name={{ item }} state=installed update_cache=yes
+  with_items:
+    - debian-archive-keyring
+    - vim
+    - zip
+    - unzip
+    - man
+    - wget
+    - ntp
+    - git
+    - ant
+    - language-pack-ja
+    - python-simplejson
+    - man-db
+    - sysstat
+    - lsof
+    - netcat
+    - parted
+    - iotop
+    - curl
+    - ifenslave
+    - xfsprogs
+

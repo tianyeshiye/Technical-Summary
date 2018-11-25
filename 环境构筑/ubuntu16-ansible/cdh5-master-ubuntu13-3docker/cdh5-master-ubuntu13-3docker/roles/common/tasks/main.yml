@@ -1,0 +1,8 @@
+# install
+- include: install.yml tags=install,common
+
+# config
+- include: config.yml tags=config,common
+
+# service
+- include: service.yml tags=service,common

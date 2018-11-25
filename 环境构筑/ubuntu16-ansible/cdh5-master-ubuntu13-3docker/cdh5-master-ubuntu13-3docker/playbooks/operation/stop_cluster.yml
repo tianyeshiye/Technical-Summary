@@ -1,0 +1,7 @@
+- include: stop_yarn.yml
+- include: stop_hdfs.yml
+- include: stop_kafka.yml
+- include: stop_hbase.yml
+- include: stop_zookeeper.yml
+- include: stop_hive.yml
+

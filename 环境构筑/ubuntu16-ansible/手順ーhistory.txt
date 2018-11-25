@@ -1,0 +1,74 @@
+★★root★★
+
+
+root@ubuntu:~/cdh5-master-ubuntu13-3docker# history
+    1  apt-get install vim -y
+    2  vi /etc/ssh/sshd_config
+    3  passwd
+    4  sudo /etc/init.d/ssh start
+    5  sudo /etc/init.d/ssh restart
+    
+    6  shutdown -h now
+    
+    
+    
+    7  apt-get update
+    8  apt-get install openssh-server
+    9  ip a
+   10  ssh-keygen -t rsa
+   11  cd .ssh/
+   12  mv id_rsa.pub authorized_keys
+   13  chmod 600 authorized_keys
+   14  hostname
+   15  vi /etc/hosts
+   16  sudo apt-get install software-properties-common -y
+   17  apt-add-repository ppa:ansible/ansible
+   18  apt-get update -y
+   19  apt-get install ansible -y
+   20  ansible --version
+   21  ip a
+   
+   winscpを利用する。
+   22  cd /root/cdh5-master-ubuntu13-3docker/
+   
+   \cdh5-master-ubuntu13-3docker/hostsファイルを自分のLinuxに合わせて修正。
+   　・hostname ubuntu
+   　・KafkaのIP
+   
+   23  ll
+   24  ansible-playbook playbooks/setup/my_setup.yml -i hosts
+   25  jps
+   26  history
+
+======Hbase 解決***************
+
+   21  sudo -u mapred hdfs dfs -chmod 777 /user
+   22  jps
+   23  ansible-playbook playbooks/operation/stop_hbase.yml -i hosts
+   24  jps
+   25  ansible-playbook playbooks/operation/start_hbase.yml -i hosts
+   26  jps
+   27  hbase shell
+   
+   ansible-playbook playbooks/operation/start_hbase.yml -i hosts
+
+   
+   /usr/lib/zookeeper/bin/zkCli.sh
+   
+   [zk: localhost:2181(CONNECTED) 1] ls /
+[cluster, controller_epoch, controller, brokers, zookeeper, rmstore, admin, isr_change_notification, consumers, config, hbase]
+[zk: localhost:2181(CONNECTED) 2]
+[zk: localhost:2181(CONNECTED) 2] rmr /hbase
+
+1 sudo -u mapred hdfs dfs -chmod 777 /user
+2 ansible-playbook playbooks/operation/stop_hbase.yml -i hosts
+3 /usr/lib/zookeeper/bin/zkCli.sh
+  ls /
+  rmr /hbase
+  
+4 ansible-playbook playbooks/operation/start_hbase.yml -i hosts
+
+
+
+::::spark history 暫定処置;;;;;;;;;;;;;;
+systemctl restart spark-history-server.service

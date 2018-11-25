@@ -1,0 +1,87 @@
+; Top group to define what kind of environment this is.
+; Examples of the group name are "production", "test" and so on.
+[production:children]
+local
+hadoop_all
+
+; This is a dummy
+[local]
+localhost
+
+; Top group of all nodes of each component
+; This group includes parent groups of each component
+[hadoop_all:children]
+hadoop_master
+hadoop_slave
+hadoop_hbase
+hadoop_client
+
+; Parent group of master nodes 
+[hadoop_master:children]
+hadoop_namenode
+hadoop_zookeeperserver
+hadoop_resourcemanager
+
+; All of NameNodes
+[hadoop_namenode:children]
+hadoop_namenode_primary
+
+; Primary NameNode
+; This group should have only one node.
+[hadoop_namenode_primary]
+iot1
+
+; All of Zookeeper nodes
+; Each node has a parameter configuration about Zookeeper ID
+[hadoop_zookeeperserver]
+iot1 zookeeper_server_id=1
+iot2 zookeeper_server_id=2
+iot3 zookeeper_server_id=3
+
+
+; All of ResourceManagers
+[hadoop_resourcemanager]
+iot1
+
+; SlaveNodes
+[hadoop_slave]
+iot2
+iot3
+
+
+; Used as a client of Hadoop
+[hadoop_client]
+iot1
+
+; Top group of HBase cluster
+; Sorry, HBase configuration is not implemented yet.
+[hadoop_hbase:children]
+hbase_master
+hbase_regionserver
+
+[hbase_master]
+iot1
+
+[hbase_regionserver]
+iot2
+iot3
+
+
+[hadoop_other]
+iot1
+
+[spark_master]
+iot1
+
+[spark_worker]
+iot2
+iot3
+
+
+[kafka-nodes]
+iot1 ansible_ssh_host=172.18.0.71
+iot2 ansible_ssh_host=172.18.0.72
+iot3 ansible_ssh_host=172.18.0.73
+
+[hive_server2]
+iot1

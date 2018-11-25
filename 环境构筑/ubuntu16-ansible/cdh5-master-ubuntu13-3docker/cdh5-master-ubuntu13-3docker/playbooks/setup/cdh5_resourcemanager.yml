@@ -1,0 +1,4 @@
+- hosts: hadoop_resourcemanager
+  roles:
+    - cdh5_base
+    - cdh5_resourcemanager

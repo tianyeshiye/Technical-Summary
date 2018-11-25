@@ -1,0 +1,19 @@
+- name: remove_namenode_data_dir
+  file: path={{ item }} state=absent force=yes
+  with_items:
+      - '{{ cdh5_dfs_nn_name_dir_list }}'
+
+- name: make_namenode_data_dir
+  file: path={{ item }} state=directory owner=hdfs group=hadoop mode=700
+  with_items: '{{ cdh5_dfs_nn_name_dir_list }}'
+
+- name: chmod_data_dir
+  file: path={{ item }} state=directory owner=hdfs group=hadoop mode=777 recurse=no
+  with_items: '{{ cdh5_data_dir_list }}'
+  
+- name: stop_daemons
+  service: name={{ item }} state=stopped
+  with_items:
+    - hadoop-hdfs-namenode
+    - hadoop-hdfs-zkfc
+

@@ -1,0 +1,9 @@
+- hosts: hive_server2
+  gather_facts: no
+  tasks:
+    - name: stop_hive
+      service: name={{ item }} state=stopped
+      with_items:
+        - postgresql
+        - hive-server2
+

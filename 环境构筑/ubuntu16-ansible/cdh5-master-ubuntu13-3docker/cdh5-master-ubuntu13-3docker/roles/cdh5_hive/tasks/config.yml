@@ -1,0 +1,40 @@
+- name: copy jdbc
+  sudo: yes
+  file: src=/usr/share/java/postgresql-jdbc4.jar dest=/usr/lib/hive/lib/postgresql-jdbc4.jar mode=0644 state=link
+
+- name: set postgresql1
+  sudo: yes
+  lineinfile: dest={{ postgres_conf }} regexp='standard_conforming_strings' line='standard_conforming_strings = off'
+
+- name: set postgresql2
+  sudo: yes
+  shell: echo "listen_addresses = '*'" >> {{ postgres_conf }}
+  #lineinfile: dest={{ postgres_conf }} regexp='listen' line="echo "listen_addresses = '*'" >> {{ postgres_conf }}
+
+- name: set postgresql3
+  shell: echo 'host    all         all         0.0.0.0/0                       md5' >> {{ postgres_pg_hba_conf }}
+
+- name: start_postgres
+  service: name={{ item }} state=started enabled=yes
+  with_items:
+    - postgresql
+
+- name: Copy setup sql script
+  template:  src=setup.sql.j2 dest=/tmp/setup.sql mode=64
+
+- name: Execute setup sql script
+  shell: cd /tmp && sudo -u postgres psql -f /tmp/setup.sql
+
+- name: Delete setup sql script
+  file: path=/tmp/my.sql state=absent
+
+- name: Copy hive-site.conf
+  template:  src=hive-site.xml.j2 dest=/etc/hive/conf/hive-site.xml mode=644
+
+- name: Copy spark-env.sh
+  template:  src=spark-env.sh.j2 dest=/etc/spark/conf/spark-env.sh mode=644
+
+- name: start_hive_server2
+  service: name={{ item }} state=started enabled=yes
+  with_items:
+    - hive-server2

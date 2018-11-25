@@ -1,0 +1,27 @@
+- name: make_log_dir_for_spark
+  become: yes
+  become_user: hdfs
+  shell: hdfs dfs -mkdir -p {{ cdh5_spark_logdir }}
+
+- name: make_lib_dir_for_spark
+  become: yes
+  become_user: hdfs
+  shell: hdfs dfs -mkdir -p {{ cdh5_assemble_jar_path }}
+
+- name: chmod_lib_dir_for_spark
+  become: yes
+  become_user: hdfs
+  shell: hdfs dfs -chmod 1777 {{ cdh5_assemble_jar_path }}
+  
+- name: copy_jar_for_spark
+  ignore_errors: yes
+  become: yes
+  become_user: hdfs
+  shell: hdfs dfs -put /usr/lib/spark/lib/spark-assembly.jar {{ cdh5_assemble_jar }}
+
+- name: chmod_spark_jar
+  ignore_errors: yes
+  become: yes
+  become_user: hdfs
+  shell: hdfs dfs -chmod 1777 {{ cdh5_assemble_jar }}
+

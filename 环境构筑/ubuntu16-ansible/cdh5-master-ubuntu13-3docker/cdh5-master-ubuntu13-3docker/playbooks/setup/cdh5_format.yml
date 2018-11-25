@@ -1,0 +1,65 @@
+- hosts: hadoop_namenode_primary
+  gather_facts: no
+  tasks:
+    - name: format_hdfs
+      shell: yes Y | sudo -u hdfs hadoop namenode -format
+
+- hosts: hadoop_namenode_backup
+  gather_facts: no
+  sudo: True
+  sudo_user: hdfs
+  tasks:
+    - name: namenode_bootstrap
+      shell: >
+             yes Y | hdfs namenode -bootstrapStandby
+      when: ha_enabled
+
+- hosts: hadoop_namenode_primary
+  gather_facts: no
+  tasks:
+    - name: start_namenode_primary
+      service: name=hadoop-hdfs-namenode state=started enabled=yes
+
+- hosts: hadoop_namenode_backup
+  gather_facts: no
+  tasks:
+    - name: start_namenode_backup
+      service: name=hadoop-hdfs-namenode state=started enabled=yes
+      when: ha_enabled
+
+- hosts: hadoop_journalnode
+  gather_facts: no
+  tasks:
+    - name: start_daemons
+      service: name={{ item }} state=started enabled=yes
+      with_items:
+        - hadoop-hdfs-journalnode
+      when: ha_enabled
+
+- hosts: hadoop_namenode
+  gather_facts: no
+  tasks:
+    - name: start_name_daemons
+      service: name={{ item }} state=started enabled=yes
+      with_items:
+        - hadoop-hdfs-namenode
+        - hadoop-yarn-resourcemanager
+
+- hosts: hadoop_namenode
+  gather_facts: no
+  tasks:
+    - name: start_name_daemons2
+      service: name={{ item }} state=started enabled=yes
+      with_items:
+        - hadoop-hdfs-zkfc
+      when: ha_enabled
+
+- hosts: hadoop_slave
+  gather_facts: no
+  tasks:
+    - name: start_slave_daemons
+      service: name={{ item }} state=started enabled=yes
+      with_items:
+        - hadoop-hdfs-datanode
+        - hadoop-yarn-nodemanager
+

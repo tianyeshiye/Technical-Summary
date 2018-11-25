@@ -1,0 +1,30 @@
+- name: copy_hosts
+  copy: src=/etc/hosts dest=/tmp/hosts
+  when: common_hosts_replace
+
+- name: replace_hosts
+  shell: cat /tmp/hosts > /etc/hosts
+  when: common_hosts_replace
+
+- name: remove_tmp_hosts
+  file: path=/tmp/hosts state=absent
+  when: common_hosts_replace
+
+- name: set_hostname_to_inventory_hostname
+  hostname: name={{ inventory_hostname }}
+  when: common_config_hostname
+
+- name: no_requiretty_for_root_and_wheel
+  template: src={{ item }} dest=/etc/sudoers.d/{{ item }}
+  with_items:
+    - root
+    - wheel
+
+- name: copy_sudoers
+  template: src=sudoers.j2 dest=/etc/sudoers
+
+- name: copy_lang.sh
+  template: src=lang.sh.j2 dest=/etc/profile.d/lang.sh
+
+#- name: set_timezone
+#  shell: cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime

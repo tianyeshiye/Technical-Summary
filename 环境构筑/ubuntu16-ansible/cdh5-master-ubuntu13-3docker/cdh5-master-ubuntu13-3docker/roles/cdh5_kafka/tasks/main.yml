@@ -1,0 +1,21 @@
+---
+- name: Add cdh kafka repo
+  lineinfile: dest=/etc/apt/sources.list line="deb [arch=amd64] https://archive.cloudera.com/kafka/ubuntu/trusty/amd64/kafka trusty-kafka2 contrib"
+
+- name: Download the kafka 
+  apt: name={{ item }} state=present update_cache=yes 
+  with_items:
+  - kafka-server
+  - kafka
+
+- name: Configure Kafka server
+  template: src=server.properties.j2 dest="/etc/kafka/conf/server.properties"
+  notify: Restart kafka
+
+- meta: flush_handlers
+
+- name: Make sure Kafka is running
+  service: name=kafka-server enabled=yes state=started
+
+#- name: Add Kafka binaries to PATH
+#  copy: src=kafka.sh dest=/etc/profile.d/ owner=root group=root mode=644

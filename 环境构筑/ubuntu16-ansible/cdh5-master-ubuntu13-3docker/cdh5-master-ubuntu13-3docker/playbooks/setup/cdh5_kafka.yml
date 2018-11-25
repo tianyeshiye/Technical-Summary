@@ -1,0 +1,22 @@
+- name: "Add nodes to required groups"
+  hosts: kafka-nodes
+  connection: local
+  gather_facts: False
+  tasks:
+    - name: "Add all cluster nodes to the kafka-nodes group"
+      add_host:
+        name: "{{ hostvars[item.1].inventory_hostname }}"
+        ansible_host: "{{ hostvars[item.1].ansible_host|default(hostvars[item.1].ansible_ssh_host) }}"
+        ansible_user: "{{ hostvars[item.1].ansible_user|default('root') }}"
+        ansible_ssh_pass: "{{ hostvars[item.1].ansible_ssh_pass|default('') }}"
+        ansible_become_user: root
+        ansible_become_pass: "{{ hostvars[item.1].ansible_ssh_pass|default('') }}"
+        id: "{{ item.0 + 1 }}"
+        groups: kafka-nodes
+      with_indexed_items: "{{ groups['kafka-nodes']|sort }}"
+
+- name: "Apply the kafka role to the Kafka nodes"
+  hosts: kafka-nodes
+  become: yes
+  roles:
+    - cdh5_kafka
