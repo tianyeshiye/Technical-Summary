@@ -1,0 +1,193 @@
+﻿学习笔记：The Log（我所读过的最好的一篇分布式技术文章）
+http://www.cnblogs.com/foreach-break/p/notes_about_distributed_system_and_The_log.html
+
+
+你真的很熟分布式和事务吗？
+https://www.cnblogs.com/foreach-break/p/distributed_system_and_transaction.html
+
+
+
+学习笔记：Twitter核心数据类库团队的Hadoop优化经验
+https://www.cnblogs.com/foreach-break/p/learn_bigdata_from_twitter_hadoop_tuning.html
+
+
+你会swap吗，按值传递还是按引用？
+https://www.cnblogs.com/foreach-break/p/call-by-reference-OR-call-by-value.html
+
+Hadoop的Server及其线程模型分析
+https://www.cnblogs.com/foreach-break/p/hadoop_rpc_server_threads.html
+
+
+你了解实时计算吗？
+https://www.cnblogs.com/foreach-break/p/what-is-real-time-computing-and-how.html
+
+
+2016数据感悟随笔
+https://www.cnblogs.com/foreach-break/p/key_points_of_data_prodution.html
+
+
+预处理  热操作
+
+ES的 一致性 保证
+https://www.jianshu.com/p/61dd9fb7d785
+一致性  就是并发处理，  乐观锁  和  悲观锁
+
+
+
+
+futuretask使用场景
+https://blog.csdn.net/u012557298/article/details/81087180
+
+futureTask设计、场景、及高并发下应用
+
+
+详解Java中的Future、FutureTask的原理以及与线程池的搭配使用
+https://blog.csdn.net/wei_lei/article/details/74262818
+
+
+
+Java并发学习(五)-LockSupport里面的park和unpark
+https://blog.csdn.net/anLA_/article/details/78635300
+
+三大性质总结：原子性，有序性，可见性
+https://www.jianshu.com/p/cf57726e77f2
+
+
+JAVA多线程——线程安全之原子性，有序性和可见性
+https://blog.csdn.net/a60782885/article/details/77803757
+
+
+java  线程  原子性  可见性
+
+
+
+
+redis tcp socket
+
+redis socket tcp
+
+redis socket
+
+resp json xml
+
+socker http websocker
+
+一次Java字节码插桩实战
+
+几种编程思想（链式编程、响应式编程、函数式编程）
+
+react模型
+
+
+netty nio 原理
+
+https://www.cnblogs.com/showing/p/6759653.html
+
+https://www.cnblogs.com/free-wings/p/9309148.html
+
+ServerSocketChannel与SocketChannel的使用
+https://blog.csdn.net/csh159/article/details/7999893
+
+Java NIO实例-ServerSocketChannel实现Socket传输
+https://blog.csdn.net/foart/article/details/47614841
+
+
+BIO,NIO,AIO(NIO2)的理解
+https://www.cnblogs.com/restart30/p/8252109.html
+
+Java IO & NIO & NIO2
+https://www.jianshu.com/p/07d3d421a877
+
+
+5种调优Java NIO和NIO.2的方式
+http://www.importnew.com/2000.html
+
+
+
+
+
+
+标签：死磕Java并发
+http://cmsblogs.com/?tag=%E6%AD%BB%E7%A3%95java%E5%B9%B6%E5%8F%91
+
+【死磕 Tomcat】—类加载器
+http://cmsblogs.com/?p=2680
+
+Java并发编程：CountDownLatch、CyclicBarrier和Semaphore
+https://www.cnblogs.com/dolphin0520/p/3920397.html
+
+
+Java并发编程的4个同步辅助类（CountDownLatch、CyclicBarrier、Semphore、Phaser）
+https://www.cnblogs.com/lizhangyong/p/8906774.html
+
+
+
+Java并发编程：CountDownLatch、CyclicBarrier和Semaphore
+https://www.cnblogs.com/dolphin0520/p/3920397.html
+
+
+
+
+
+一个故事讲清楚NIO
+https://blog.csdn.net/GarfieldEr007/article/details/83656485
+
+
+
+如何用消息系统避免分布式事务？
+http://www.cnblogs.com/LBSer/p/4715395.html
+
+Redis分布式锁的正确实现方式
+https://www.cnblogs.com/linjiqin/p/8003838.html
+
+
+Redis分布式锁的正确实现方式（Java版）
+https://wudashan.cn/2017/10/23/Redis-Distributed-Lock-Implement/#%E5%8F%82%E8%80%83%E9%98%85%E8%AF%BB
+
+
+基于Redis Lua脚本实现的分布式锁
+http://ju.outofmemory.cn/entry/74765
+
+
+zookeeper分布式锁实现原理
+https://blog.csdn.net/varyall/article/details/82528107
+
+
+Zookeeper实现分布式锁
+https://www.jianshu.com/p/5d12a01018e1
+
+
+https://blog.csdn.net/liu20111590/article/details/53759463
+redis--乐观锁--粗粒度锁
+
+
+当前标签: Spark源码
+https://www.cnblogs.com/itboys/tag/Spark%E6%BA%90%E7%A0%81/
+
+
+
+Redis 的操作为什么是的原子性的详解
+https://blog.csdn.net/ahjxhy2010/article/details/80520434
+
+Redis原子计数器incr，防止并发请求
+https://blog.csdn.net/Roy_70/article/details/78260826
+
+
+redis 的incr/decr 的原子性是什么意思？
+https://blog.csdn.net/u010412301/article/details/60595435
+
+
+在redis中使用lua脚本让你的灵活性提高5个逼格
+https://www.cnblogs.com/huangxincheng/p/6230129.html
+
+
+
+
+Nginx 相关介绍(Nginx是什么?能干嘛?)
+https://www.cnblogs.com/wcwnina/p/8728391.html
+
+
+
+
+粗粒度与细粒度权限控制
+https://blog.csdn.net/qq_39949109/article/details/80603980

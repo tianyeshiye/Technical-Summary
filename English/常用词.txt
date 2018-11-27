@@ -121,10 +121,3 @@ runtime 执行期 运行期、运行时
 　　template parameter 模板叁数 模板叁数
 
 　　temporary object 暂时物件 临时对象
-
-　　text 文字 文本
---------------------- 
-作者：Simon丶Ma 
-来源：CSDN 
-原文：https://blog.csdn.net/u011225629/article/details/50034981 
-版权声明：本文为博主原创文章，转载请附上博文链接！

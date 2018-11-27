@@ -8,3 +8,4 @@ Inversion of Control
 slow you down
 low latency and a fast network
 rely on
+MVCC,Multi Version Concurrency Control

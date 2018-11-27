@@ -1,28 +1,3 @@
-Retention
-propagation
-isolation
-interceptor
-Multi
-Concurrency
-mandatory
-nested
-instrument
-discard
-retain
-Retention
-Indicate
-Constructor
-declaration
-Alias
-Inherited
-Declared
-Override
-
-
-
-MVCC,Multi Version Concurrency Control
-
-
 問題 1 
 爲什麽spark生成parquet文件比avro,sqquence文件慢
 答：
