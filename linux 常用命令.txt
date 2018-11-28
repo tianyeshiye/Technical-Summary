@@ -1,0 +1,4 @@
+ centos
+ 显示系统版本
+ cat  /etc/redhat-release
+ cat /proc/version

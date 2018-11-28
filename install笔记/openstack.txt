@@ -1,0 +1,2 @@
+openstack auto install
+http://designetwork.hatenablog.com/entry/2018/03/06/openstack-queens-packstack-basic
