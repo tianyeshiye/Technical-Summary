@@ -43,7 +43,5 @@ kafka  WAL机制  ?????
 OpenStack重要概念理解（Regions+Cells+Availability Zones+Host Aggregates等）
 http://blog.chinaunix.net/uid-20940095-id-4064233.html
 
-openstack auto install
-http://designetwork.hatenablog.com/entry/2018/03/06/openstack-queens-packstack-basic
 
 ******************************************:::blog******************************************
