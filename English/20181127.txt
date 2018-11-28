@@ -1,0 +1,49 @@
+Prerequisites
+Acknowledgement
+MULTI
+EXEC
+DISCARD
+WATCH
+
+
+openstack install
+http://designetwork.hatenablog.com/entry/2018/03/06/openstack-queens-packstack-basic
+
+
+Java 类加载机制(阿里面试题)-何时初始化类
+http://www.cnblogs.com/aspirant/p/7200523.html
+
+
+https://blog.csdn.net/qq_37502106/article/details/80271800
+Kafka HA Kafka一致性重要机制之ISR(kafka replica)
+Kafka的配置文件详细描述
+https://www.cnblogs.com/jun1019/p/6256371.html
+
+
+套接字是什么
+
+
+14个最常见的Kafka面试题及答案
+https://www.toutiao.com/i6456660580726997517
+
+https://blog.csdn.net/tugangkai/article/details/83018006
+
+Redis的那些最常见面试问题
+http://www.cnblogs.com/Survivalist/p/8119891.html
+https://www.cnblogs.com/skying555/p/8473500.html
+
+Redis的两种持久化方式-快照持久化（RDB）和AOF持久化
+https://www.cnblogs.com/wt645631686/p/6868615.html
+
+
+
+
+
+https://blog.csdn.net/Roy_70/article/details/78260826
+
+https://www.cnblogs.com/0201zcr/p/5942748.html
+使用redis的setNX命令实现分布式锁
+redis setnx expire 实现分布式锁
+
+https://blog.csdn.net/Roy_70/article/details/78260826
+Redis原子计数器incr，防止并发请求
