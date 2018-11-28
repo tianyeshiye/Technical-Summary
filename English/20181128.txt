@@ -1,0 +1,49 @@
+region
+Endpoint
+respect
+direct
+indirect
+
+
+
+******************************************:::blog******************************************
+
+简单来说就是：apt = apt-get、apt-cache 和 apt-config 中最常用命令选项的集合。
+像窮
+https://blog.csdn.net/taotongning/article/details/82660943
+
+
+******************************************:::blog******************************************
+如何解决分布式系统数据事务一致性问题（HBase加Solr）
+https://www.cnblogs.com/wgp13x/p/4577181.html
+
+
+https://www.cnblogs.com/shijingjing07/p/9301590.html
+Linux 服务管理两种方式service和systemctl
+
+
+
+hbase 一致性
+http://bi.dataguru.cn/hadoop-393085-1-1.html
+
+
+分布式锁解决并发的三种实现方式
+https://www.jianshu.com/p/350a5f891f11
+
+
+kafka direct 跟receiver 方式接收数据的区别
+https://www.jianshu.com/p/689060092827
+基于Kafka Dircet方式的实时WordCount
+
+kafka  WAL机制  ?????
+
+
+
+
+OpenStack重要概念理解（Regions+Cells+Availability Zones+Host Aggregates等）
+http://blog.chinaunix.net/uid-20940095-id-4064233.html
+
+openstack auto install
+http://designetwork.hatenablog.com/entry/2018/03/06/openstack-queens-packstack-basic
+
+******************************************:::blog******************************************
