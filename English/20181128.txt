@@ -31,14 +31,6 @@ http://bi.dataguru.cn/hadoop-393085-1-1.html
 https://www.jianshu.com/p/350a5f891f11
 
 
-kafka direct 跟receiver 方式接收数据的区别
-https://www.jianshu.com/p/689060092827
-基于Kafka Dircet方式的实时WordCount
-
-kafka  WAL机制  ?????
-
-
-
 
 OpenStack重要概念理解（Regions+Cells+Availability Zones+Host Aggregates等）
 http://blog.chinaunix.net/uid-20940095-id-4064233.html
