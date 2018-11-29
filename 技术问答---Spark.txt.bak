@@ -9,19 +9,9 @@ spark  调优
 
 
 做了哪些贡献 主要工作
-1  三种文件格式，parquet, avro, sequence
-   复写了 hdfs 的 inputformart 和 outpputformart
+1  复写了 hdfs 的 inputformart 和 outpputformart
 2  逻辑问题，数据分情况分组的转换，一个车的信息输出到了不同的文件里面，  解决了做到一体化的逻辑问题
 3   hdfs 文件的add 解决方案
-4   （车种类、 电文版本号） 电文的转化、物理量变换原先做得很混乱， 
-     我接手后，把这个功能迁移到redis上
-     具体是把很多jar(车种类、版本号)，放到redis里面
-     有spark读取加载，广播的形式发到各个excute上
-
-
-parquet 文件 ORI文件的区别。
-
-LAMB 架构？？
 
 
 --- Spark shuffle操作的具体步骤
