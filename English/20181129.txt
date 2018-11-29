@@ -1,0 +1,156 @@
+Omitted
+fancier
+properly
+proper
+tier
+Credential
+Authentication
+Endpoint
+Dashboard
+Policy
+Throwable
+tenant
+transient
+Authentication
+pipeline
+segment
+stable
+audit
+horizon
+Wrapper
+Credential
+
+
+*****************************************blog*************************************************
+0
+0.1
+openstack pipeline 的使用 理解
+
+管道设计模式
+
+
+
+0.2
+openstack endpoing 理解
+就是openstack各个服务（组件）对外服务的地址（对外包括OpenStack其他组件，或者openstack的使用者）
+Endpoint：一个可以通过网络来访问和定位某个Openstack service的地址，通常是一个URL。比如，当Nova需要访问Glance服务去获取image 时，Nova通过访问Keystone拿到Glance的endpoint，然后通过访问该endpoint去获取Glance服务。我们可以通过Endpoint的region属性去定义多个region。Endpoint 该使用对象分为三类：
+admin url –> 给admin用户使用，Post：35357
+internal url –> OpenStack内部服务使用来跟别的服务通信，Port：5000
+public url –> 其它用户可以访问的地址，Post：5000
+创建完service后创建API EndPoint. 在openstack中，每一个service都有三种end points. Admin, public, internal。 Admin是用作管理用途的，如它能够修改user/tenant(project)。 public 是让客户调用的，比如可以部署在外网上让客户可以管理自己的云。internal是openstack内部调用的。三种endpoints 在网络上开放的权限一般也不同。Admin通常只能对内网开放，public通常可以对外网开放internal通常只能对安装有openstack对服务的机器开放。
+
+参考：
+https://www.cnblogs.com/linkenpark/p/5898598.html
+
+1  openstack 知识点
+openstack swift domain region zone区别
+domain是用户上的域
+region 是存储上的域
+domain ： 如aws 的不同国家用不用的域
+Region：地理位置上的区域，比如不同城市甚至不同国家的机房，这主要是从灾备方面考虑的。
+Zone：一个数据中心根据物理网络、供电、空调等基础设施分开的独立的域，往往将一个机架（Rack）内的服务器分在一个 Zone 内。
+Node （节点）：物理服务器
+Disk （磁盘）：物理服务器上的磁盘
+
+Swift 在确定对象的放置位置时，会尽量将对象及其拷贝放在不会同时损失的物理位置上。见上图2.
+
+参考：
+https://www.cnblogs.com/sammyliu/p/4955241.html
+
+
+swift  保证数据一致性
+对象及其拷贝放置在某个磁盘上后，Swift 会使用Replicators, Updaters 和 Auditors 等后台服务来保证其数据的最终一致性。
+
+Replicator – 拷贝对象，确保系统的最终一致性（Replicate objects and make a system in a consistent state）；恢复磁盘和网络错误（Recover disk failure, network outages situation）
+Updater – 更新元数据（Update metadata），从容器和账户元数据高负载导致的问题上恢复（Recover failure caused by container, account metadata high load）
+Auditor – 删除问题账户，容器和对象，然后从别的服务器上拷贝过来（Delete problematic account, container or objects and replicate from other server）；恢复数据库和文件数据错误（Recover dbs or files which have bit rot problem.
+   注意：Swift  是如何实现这些需求的：使用 Ring + 哈希算法
+      管理员使用 swift-ring-builder object.builder
+参考：https://www.cnblogs.com/sammyliu/p/4955241.html
+
+2 
+WSGI 服务
+
+
+
+3    概念
+IaaS：基础设施即服务
+用户通过网络获取虚机、存储、网络，然后用户根据自己的需求操作获取的资源。  典型应用：亚马逊AWS等
+PaaS：平台即服务
+将软件研发平台作为一种服务， 如Eclipse/Java编程平台，服务商提供编程接口/运行平台等。典型应用：Google AppEngine、Force.com、微软Azure等
+SaaS：软件即服务  如 Saleforce.com  Office Live 
+将软件作为一种服务通过网络提供给用户，如web的电子邮件、HR系统、订单管理系统、客户关系系统等。用户无需购买软件，而是向提供商租用基于web的软件，来管理企业经营活动。典型应用：Google Doc、Saleforce.com、Oracle CRM On Demand、Office Live Workspace等
+
+参考：
+https://www.cnblogs.com/linkenpark/p/5898598.html
+
+
+4 java 语法
+java 的transient关键字为我们提供了便利，你只需要实现Serilizable接口，将不需要序列化的属性前添加关键字transient
+1）一旦变量被transient修饰，变量将不再是对象持久化的一部分，该变量内容在序列化后无法获得访问
+2）transient关键字只能修饰变量，而不能修饰方法和类。注意，本地变量是不能被transient关键字修饰的。变量如果是用户自定义类变量，则该类需要实现Serializable接口。
+3）被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化。
+注：
+我们知道在Java中，对象的序列化可以通过实现两种接口来实现，若实现的是Serializable接口，则所有的序列化将会自动进行，若实现的是Externalizable接口，则没有任何东西可以自动序列化，需要在writeExternal方法中进行手工指定所要序列化的变量，这与是否被transient修饰无关
+
+
+
+5
+基于Kafka Dircet方式的实时WordCount
+
+kafka  WAL机制  ?????
+预写日志机制（Write Ahead Log，WAL）
+Receiver是使用Kafka的高层次Consumer API来实现的。receiver从Kafka中获取的数据都是存储在Spark Executor的内存中的，然后Spark Streaming启动的job会去处理那些数据。然而，在默认的配置下，这种方式可能会因为底层的失败而丢失数据。如果要启用高可靠机制，让数据零丢失，就必须启用Spark Streaming的预写日志机制（Write Ahead Log，WAL）。该机制会同步地将接收到的Kafka数据写入分布式文件系统（比如HDFS）上的预写日志中。所以，即使底层节点出现了失败，也可以使用预写日志中的数据进行恢复，但是效率会下降。
+
+direct 这种方式会周期性地查询Kafka，来获得每个topic+partition的最新的offset，从而定义每个batch的offset的范围。当处理数据的job启动时，就会使用Kafka的简单consumer api来获取Kafka指定offset范围的数据。
+
+参考：
+https://blog.csdn.net/qq_29651795/article/details/70158376
+
+
+5.5
+总结
+kafka direct 跟receiver方式接收数据的区别
+
+1. 简化并行读取：
+Spark会创建跟Kafka partition一样多的RDD partition，并且会并行从Kafka中读取数据。所以在Kafka partition和RDD partition之间，有一个一对一的映射关系
+
+2. 高性能：
+direct方式不需要开启WAL机制
+
+3.一次且仅一次的事务机制：
+receiver方式 zookeeper管理offset 用高阶API。
+direct方式，使用kafka的简单api，Spark Streaming自己就负责追踪消费的offset，并保存在checkpoint中
+
+参考：
+https://www.jianshu.com/p/689060092827
+
+
+6  kafka 性能调优
+硬件角度：＋机器
+
+业务角度：
+
+代码角度：
+
+
+7  分布式的一致性分2方面
+在分布式环境下，一致性指的是多个数据副本是否能保持一致的特性。
+
+7.1，备份 存储的最终一致性  副本方案（Replica）
+7.2，并发访问的数据一致性  （大多数都是：乐观锁 CAS） 如ES
+ES 数据并发冲突控制是基于的乐观锁和版本号的机制
+
+
+参考：
+https://www.jianshu.com/p/61dd9fb7d785
+https://yq.aliyun.com/articles/66188
+
+
+
+带看文章
+https://www.jianshu.com/p/61dd9fb7d785
+
+
+
+*****************************************blog*************************************************
