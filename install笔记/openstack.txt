@@ -1,5 +1,12 @@
 openstack auto install
 http://designetwork.hatenablog.com/entry/2018/03/06/openstack-queens-packstack-basic
 
+
 packstack(ansible) auto install 
 https://www.rdoproject.org/install/packstack/
+
+
+keystone +  swift  +   dashboard 比较不错的文章
+https://www.cnblogs.com/hukey/p/8331766.html
+
+
