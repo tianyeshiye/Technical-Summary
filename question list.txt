@@ -1,3 +1,19 @@
+分布式事务
+TCC
+全局事务
+基于可靠消息队列实现
+最大努力通知
+
+
+三种I/O复用模式
+netty   NIO-reactor   select  poll  epoll 区别
+Reactor 模式
+
+
+
+用户画像与用户故事
+
+
 HDFS  怎麽實現 文件ADD 功能
 
 学习笔记：The Log（我所读过的最好的一篇分布式技术文章）

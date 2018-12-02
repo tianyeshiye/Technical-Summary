@@ -1,0 +1,43 @@
+大数据知识体系
+1 、文件存储 ：  HDFS、 Tachyon 、KFS S3
+2 、离线计算 ：  Hadoop MP、 Spark
+3 、流式（实时）计算 ： Storm、 Spark Streaming、Flink、 S4
+4 、资源管理 ： YARM、 Mesos
+5 、NOSQL数据库 : HBase 、 Redis、 MongoDB
+6 、日志收集 ： Flume、 Scribe、 Logstash
+7 、消息队列 ： Kafka、RabbitMQ、 StormMQ
+8 、查询分析 ： Hive、 Impala、 Presto、 SparkSQL、 Kylin、 Druid
+9 、分布式协调服务 ： Zookeeper
+10、集群管理与监控 ： Ambari、 Ganglia、 Nagios、 Cloudera Manager
+11、数据挖掘 ： 机器学习 、 Spark MLLib
+12、数据同步 ： Sqoop 、 DataX
+13、任务调度 ： Oozie、 azkaban
+14、数据可视化 ： Kibana、 grafana
+15、NewSQL ： Tidb, cockra
+16、时序数据库 ： openTSDB， InfluxDB
+
+大户据架构
+1、Lambda架构
+2、Kappa架构
+3、IOTA架构
+
+
+数据架构师工作职责
+1、数据平台的建设（规划、选型、管理、优化）
+2、数据的集成（ETL工具开放与流程维护）
+3、数据仓库建设（数据仓库设计、分层）
+4、数据应用开发
+5、数据模型设计
+6、数据分析、数据挖掘
+7、数据可视化实现
+
+大数据平台学习路线
+1、Linux : 基本操作、磁盘/内存/网络管理优化
+2、Java ： RPC、 SpringMVC、 Maven
+3、Python : pandas、 numpy
+4、数据库 ： SQL基本操作、数据备份、导入导出
+5、学习顺序 ： HDFS、Mapreduce、Hive、Sqoop、Hbase、Zookeeper、Spark、
+Flume、Kafka、Flink、Druid
+
+
+Druid 实时大数据分析
