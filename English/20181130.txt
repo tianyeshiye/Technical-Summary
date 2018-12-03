@@ -1,21 +1,3 @@
-
-interpreter
-recon
-Enterprise
-Integration
-Pattern
-quora
-Overlap
-lap
-laptop
-
-
-
-https://blog.csdn.net/aitangyong/article/details/39455229
-sun.misc.Cleaner是JDK内部提供的用来释放非堆内存资源的API
-
-
-
 多线程视频下载**************
 http://www.itsource.com.cn/thread-3006-1-1.html
 
@@ -42,43 +24,24 @@ https://www.jianshu.com/p/350a5f891f11
 总结HDFS的IO操作
 https://blog.csdn.net/qq_33069917/article/details/75578092
 
-浅谈HDFS及其读写过程
-https://blog.csdn.net/qq_40589631/article/details/81610461
-
-
-为什么说Redis是单线程的？
-https://blog.csdn.net/qq_42894896/article/details/84401842
-
-＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊　blog ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
-blog important   *********
-java.nio.MappedByteBuffer;
-使用多线程往同一个文件写入数据的线程安全的例子(java实现)
-https://blog.csdn.net/nmgrd/article/details/81335439
 
 
 
-1  
-目前Hadoop只支持单用户写，不支持并发多用户写。
-可以使用Append操作在文件的末尾添加数据，但不支持在文件的任意位置进行修改。
 
-HDFS设计之处并不支持给文件追加内容，这样的设计是有其背景的
-但从HDFS2.x开始支持给文件追加内容，
-只需要将hdfs-site.xml中的以下属性修改为true就行。
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊　blog ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
 
-2  
-浅谈HDFS及其读写过程
-https://blog.csdn.net/qq_40589631/article/details/81610461
+
+缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级
+二八定律”、什么是“热数据和冷数据
+
+
+Redis哨兵（Sentinel）和自动分区（Cluster）提供高可用性（High Availability）。
+
 
 
 
 2222  
 parquet文件与orc的区别
-
-
-3
-
-（1）其实可以把所有要写的东西排队，只有一个程序可以写，别的程序想写，就发送给他就行
-（2）文件加锁
 
 
 
@@ -104,105 +67,7 @@ selector?
 乐观锁 CAS
 加锁  并发 变成 串行
 
-9   swift的并发写入？
 
-
-
-
-
-1， Swift数据模型
-   4.1 Swift数据模型
-https://blog.csdn.net/sinat_27186785/article/details/51921458
-
-这里的账户和个人账户不是一个概念，可理解为租户，用来做顶层的隔离机制，可以被多个个人账户所共同使用；
-容器类似文件夹，代表封装一组对象；对象由元数据和数据两部分组成。
-https://blog.csdn.net/oQingQingZiZuo/article/details/46872441?locationNum=14
-
-/租户
-租户存储位置是是名字唯一的存储区域，它包含了租户的元数据信息、该租户的容器列表。
-需要注意的是，在swift中，一个租户并不是通常所说的用户标示。你可以这么理解，租户就是一块存储区域。
-https://blog.csdn.net/oQingQingZiZuo/article/details/46872441?locationNum=14
-
-Account: 账户/租户。Swift 是天生支持多租户的。如果使用 OpenStack Keystone 做用户校验的话，account 与 OpenStack project/tenant 的概念相同。
-Swift 租户的隔离性体现在metadata上，而不是体现在 object data 上。数据包括自身元数据 和 container 列表，被保存在 SQLite 数据库中。
-http://www.cnblogs.com/sammyliu/p/4955241.html
-
-
-
-2  Swift和HDFS的技术差异
-Swift和Hadoop分布式文件系统（HDFS）都有着相似的目的：实现冗余、快速、联网的存储，它们的技术差异如下：
-
-1， swift 扩展性好，跨集群，无单点  无限的可扩展性 无单点故障
-2   swift  的多租户架构
-3， swift  可以写入多次
-4， swift是通用的解决方案， 存储数量多的大小不一样的文件， hdfs存储数量中等的大文件
-
-在Swift中，元数据呈分布式，跨集群复制。而在HDFS使用了中央系统来维护文件元数据（Namenode，名称节点），
-这对HDFS来说无异于单一故障点，因而扩展到规模非常大的环境显得更困难。
-Swift在设计时考虑到了多租户架构，而HDFS没有多租户架构这个概念。
-在Swift中，文件可以写入多次；在并发操作环境下，以最近一次操作为准。而在HDFS中，文件写入一次，而且每次只能有一个文件写入。
-Swift用Python来编写，而HDFS用Java来编写。
-Swift被设计成了一种比较通用的存储解决方案，能够可靠地存储数量非常多的大小不一的文件；
-而HDFS被设计成可以存储数量中等的大文件（HDFS针对更庞大的文件作了优化），以支持数据处理。
-
-https://www.cnblogs.com/sdjnzqr/p/3909498.html
-
-
-2  Swift 并发写入情况
-？？？？？
-
-
-3  swift 应用场景
-Swift针对的是读写都比较频繁的场景，所以采用了比较折中的策略，
-即写操作需要满足至少一半以上成功W>N/2，再保证读操作与写操作的副本集合至少产生一个交集，即R+W>N。
-参考：
-https://blog.csdn.net/sinat_27186785/article/details/51921458
-https://www.cnblogs.com/sdjnzqr/p/3909498.html
-
-98
-JIT与JVM的三种执行模式：解释模式、编译模式、混合模式
-https://www.cnblogs.com/lyhero11/p/5080306.html
-
-
-
-99
-
-java 编译器
-Java语言写的源程序通过Java编译器，编译成与平台无关的‘字节码程序’(.class文件，也就是0，1二进制程序)，然后在OS之上的Java解释器中解释执行。 
-也相当与 注：JVM（java虚拟机）包括解释器，不同的JDK虚拟机是相同的，解释器不同。
-
-JVM-java虚拟机
-.JVM：是java的核心和基础，在java编译器和os平台之间的虚拟处理器。它是一种利用软件方法实现的抽象的计算机基于下层的操作系统和硬件平台，可以在上面执行java的字节码程序。 java编译器只要面向JVM，生成JVM能理解的代码或字节码文件。Java源文件经编译成字节码程序，通过JVM将每一条指令翻译成不同平台机器码，通过特定平台运行。 
-JVM执行程序的过程： 
-I.加载。class文件 
-II.管理并分配内存 
-III.执行垃圾收集 JRE（java运行时环境）由JVM构造的java程序的运行环境 编译时 运行时
-
-ava编译负责对.java文件编译成.class文件（字节码文件，以供jvm使用）
-jvm负责运行.class文件，jvm最重要的作用是实现操作系统与代码的无关性（程序与操作系统的分离）
-
-Java这个语言很非凡。 
-一、你可以说它是编译型的。因为所有的Java代码都是要编译的，.java不经过编译就什么用都没有。 
-二、你可以说它是解释型的。因为java代码编译后不能直接运行，它是解释运行在JVM上的，所以它是解释运行的，那也就算是解释的了。 
-三、但是，现在的JVM为了效率，都有一些JIT优化。它又会把.class的二进制代码编译为本地的代码直接运行，所以，又是编译的。
-像C、C++ 他们经过一次编译之后直接可以编译成操作系统了解的类型，可以直接执行的 所以他们是编译型的语言。
-没有经过第二次的处理 而Java不一样他首先由编译器编译成.class类型的文件，
-这个是java自己类型的文件 然后在通过虚拟机(JVM)从.class文件中读一行解释执行一行，所以他是解释型的语言，
-而由于java对于多种不同的操作系统有不同的JVM所以 Java实现了真正意义上的跨平台！
-
-定义： 
-编译型语言：把做好的源程序全部编译成二进制代码的可运行程序。然后，可直接运行这个程序。 
-解释型语言：把做好的源程序翻译一句，然后执行一句，直至结束！
-区别： 
-编译型语言，执行速度快、效率高；依靠编译器、跨平台性差些。 
-解释型语言，执行速度慢、效率低；依靠解释器、跨平台性好。 
-个人认为，java是解释型的语言，因为虽然java也需要编译，编译成.class文件，
-但是并不是机器可以识别的语言，而是字节码，最终还是需要 jvm的解释，才能在各个平台执行，这同时也是java跨平台的原因。
-所以可是说java即是编译型的，也是解释型，但是假如非要归类的话，从概念上的定义，恐怕java应该归到解释型的语言中。 
-
-参考：
-https://blog.csdn.net/qzc70919700/article/details/72515022
-https://blog.csdn.net/u014647208/article/details/78329187  有图有真相
 ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊　blog ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
 
 
