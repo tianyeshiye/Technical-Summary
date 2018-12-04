@@ -1,31 +1,41 @@
-spark  调优
+spark  调优    主要在于并行度， I/0， 算法
 
 关键看 spark ui 的执行结果，能看出很多问题
-1、资源，并行度
-2、数据本地化调优
-3、数据倾斜
-4、尽量避免引起shuffle 的算子
-5、尽量减少jvm 的 full 垃圾回收 
+1、硬件资源角度，提高并行度
+2、业务角度，避免数据倾斜，提高并行度， 分而治之的原理
+3、数据I/O 角度 较少数据I/O ，数据本地化调优
+4、代码角度 尽量减少shuffle
+5、jvm角度 尽量减少full垃圾回收 
 
 
 做了哪些贡献 主要工作
-1  三种文件格式，parquet, avro, sequence
-   复写了 hdfs 的 inputformart 和 outpputformart
-2  逻辑问题，数据分情况分组的转换，一个车的信息输出到了不同的文件里面，  解决了做到一体化的逻辑问题
-3   hdfs 文件的add 解决方案
-4   （车种类、 电文版本号） 电文的转化、物理量变换原先做得很混乱， 
+我主要负责 ETL 中的数据转换部分，
+
+1  三种文件格式，parquet, avro, sequence， 入力，出力，转换
+   重写了 hdfs 的 inputformart 和 outputformart   （文件分割，读写）
+2  重新设计逻辑问题，数据分情况,分组的转换，  一个车的信息输出到了不同的文件里面，  解决了做到一体化的逻辑问题
+3   hdfs 文件的 add 解决方案
+
+4   动态转换，转换规则第三方化 
+4.1 文件的schema动态生成
+4.2 转换规则的jar包，可扩展，可变化，放在Reids上
+（车种类、 电文版本号） 电文的转化、物理量变换原先做得很混乱， 
      我接手后，把这个功能迁移到redis上
      具体是把很多jar(车种类、版本号)，放到redis里面
      有spark读取加载，广播的形式发到各个excute上
 
+--- Spark工作的一个流程
+SparkContext  ->  DAGScheduler  -> stage -> taskset -> taskScheduler
 
-parquet 文件 ORI文件的区别。
+答： 用户提交一个任务。 入口是从sc开始的。 
+同时会去创建Scheduler和DAGScheduler。DAGScheduler 会根据RDD的宽依赖或者窄依赖，进行阶段的划分。划分好后放入taskset中，交给taskscheduler 。
+appclient会到master上注册。首先会去判断数据本地化，尽量选最好的本地化模式去执行。
+打散 Executor选择相应的Executor去执行。ExecutorRunner会去创建CoarseGrainerExecutorBackend进程。 通过线程池的方式去执行任务。
 
-LAMB 架构？？
-
-
---- Spark shuffle操作的具体步骤
-答： 
+--- Spark shuffle操作的具体
+shuffleMapTask ->  resultTask (同一个文件不同的segment) -> 
+答： writeShuffle   ->   readShuffle
+同一个文件不同的段
 
 --- 简单说一下hadoop和spark的shuffle过程？ 
 答：  hadoop：map端保存分片数据，通过网络收集到reduce端。 
@@ -53,15 +63,6 @@ https://blog.csdn.net/u011564172/article/details/70172060
 答： 
 https://blog.csdn.net/u011564172/article/details/71170221
 
---- Spark工作的一个流程
-SparkContext  ->  DAGScheduler  -> stage -> taskset -> taskScheduler
-
-
-答： 用户提交一个任务。 入口是从sc开始的。 
-sc会去创建一个taskScheduler。根据不同的提交模式， 会根据相应的taskchedulerImpl进行任务调度。
-同时会去创建Scheduler和DAGScheduler。DAGScheduler 会根据RDD的宽依赖或者窄依赖，进行阶段的划分。划分好后放入taskset中，交给taskscheduler 。
-appclient会到master上注册。首先会去判断数据本地化，尽量选最好的本地化模式去执行。
-打散 Executor选择相应的Executor去执行。ExecutorRunner会去创建CoarseGrainerExecutorBackend进程。 通过线程池的方式去执行任务。
 
 --- 
 
