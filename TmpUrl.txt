@@ -1,11 +1,3 @@
-https://www.cnblogs.com/heml/p/6796414.html
-Spark-Streaming获取kafka数据的两种方式：Receiver与Direct的方式
-
-
-https://www.cnblogs.com/ChouYarn/p/6235823.html
-Spark Streaming消费Kafka Direct方式数据零丢失实现
-
-
 
 Tachyon：Spark生态系统中的分布式内存文件系统  
 https://www.csdn.net/article/2015-06-25/2825056
@@ -21,19 +13,6 @@ alluxio和Redis有什么区别
 当SparkSQL遇上Alluxio
 https://www.jianshu.com/p/ca75a8adb003?from=timeline&isappinstalled=0
 
-
-
-java  
-on heap   off heap
-
-
-
-堆外内存(off-heap)、堆内内存(on-heap)
-https://blog.csdn.net/universe_ant/article/details/52145450
-
-
-Spark2.x 内存管理之---OFF_HEAP
-https://blog.csdn.net/qq_21439395/article/details/80773121
 
 
 Spark如何解决常见的Top N问题
