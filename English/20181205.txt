@@ -25,5 +25,36 @@ https://www.cnblogs.com/dolphin0520/category/602384.html
 随笔分类 - Java网络编程
 
 
+并发编程 博客
+https://blog.csdn.net/bntX2jSQfEHy7/article/details/78237208
+https://www.cnblogs.com/nullzx/default.html?page=2
+
+https://blog.csdn.net/z69183787/article/category/2176989/2
+
+面试
+https://blog.csdn.net/z69183787/article/category/2185959
+
+
+
+
 Java并发编程：阻塞队列
 https://www.cnblogs.com/dolphin0520/p/3932906.html
+
+
+
+
+https://www.cnblogs.com/nullzx/p/7406151.html
+Java中的四种引用以及ReferenceQueue和WeakHashMap的使用示例
+
+
+https://www.cnblogs.com/nullzx/p/7455919.html
+Java并发包中CopyOnWrite容器相关类简介
+
+
+https://www.cnblogs.com/nullzx/p/7640636.html
+关于Class对象、类加载机制、虚拟机运行时内存布局的全面解析和推测
+
+
+JAVA NIO工作原理及代码示例
+https://www.cnblogs.com/nullzx/p/8932977.html
+
