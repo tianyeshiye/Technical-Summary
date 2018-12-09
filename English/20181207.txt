@@ -1,3 +1,0 @@
-elapse
-Native
-Trusty

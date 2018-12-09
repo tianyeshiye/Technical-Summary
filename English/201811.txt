@@ -2,7 +2,7 @@ Identity
 scale
 discovery
 registration
-delivery services
+
 persistent
 Telemetry
 simplistic
@@ -17,7 +17,7 @@ Consistent
 Eventual
 Consistency
 integrity
-checking
+
 Authentication
 Auditor
 modernize
@@ -28,7 +28,7 @@ Tenured
 Survivor
 Eden
 lineage
-runtime
+
 threshold
 Trash
 decommission
@@ -40,7 +40,7 @@ allocate
 Deprecate
 Throughput
 specify
-Authentication
+
 Credentials
 Authentication
 Authorization
@@ -57,43 +57,3 @@ continuously
 persist
 chronological
 Originally
-inactivity
-figure
-Hints
-parallelize
-manually
-bucket
-elapsed
-slice
-truncate
-Summary
-technology
-Payload
-alternative
-chronological
-peculiar to
-recursive
-elapsed time
-integrate
-Identity
-benefit
-reliance
-Discoverability
-capability
-concept
-aggregation
-disaggregation
-confers
-scalability
-definition
-portion
-inefficient
-latency
-reliance
-Invocation
-Handler
-Instrument
-definition
-Enhancer
-Advisor
-sticky

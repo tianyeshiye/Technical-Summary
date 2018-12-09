@@ -1,11 +1,3 @@
-region
-Endpoint
-respect
-direct
-indirect
-
-
-
 ******************************************:::blog******************************************
 
 简单来说就是：apt = apt-get、apt-cache 和 apt-config 中最常用命令选项的集合。

@@ -1,9 +1,4 @@
-Prerequisites
-Acknowledgement
-MULTI
-EXEC
-DISCARD
-WATCH
+
 
 
 openstack install

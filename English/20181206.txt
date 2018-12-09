@@ -1,6 +1,2 @@
-Incompatible
-
-
-
-Hadoop文件系统。
+﻿Hadoop文件系统。
 https://blog.csdn.net/en_joker/article/details/79019938
