@@ -1,0 +1,49 @@
+做人做事方式有问题
+
+做人做事方式要正确 理性 （符合环境 人与事的关系）
+
+不要和环境作对
+善于发现环境中的问题 和 势 加以利用
+
+
+
+MultiPart
+数据包全部加载入内存：对于大文件的MultiPart数据量来说，这种方式会占用大量内存(比如一个用户正在上传1G的数据，那么内存区必须接收到全部1G数据后才能进行解析，如果多用户同时操作会导致服务器崩溃)，这种方式不可用。
+数据包全部写入文件后再加载入内存：只能解决在接收过程中开启小内存并分段写入文件
+
+采用的是分段接收，分段解析，分段写文件的处理方式
+
+ServletInputStream/BufferedInputStream对象：
+使用以上两对象，可对本次请求进行按字节流接收。在此可创建比较小的接收缓冲区，依靠BufferedInputStream的read进行分段循环接收。
+
+用JAVA实现大文件上传及显示进度信息
+https://www.cnblogs.com/darkprince/p/5114936.html
+
+
+https://blog.csdn.net/jcsyl_mshot/article/details/80735421
+HTTP 断点续传的原理
+要实现断点续传下载文件， 首先要了解断点续传的原理。 断点续传其实就是在上一次下载断开的位置开始继续下载。 HTTP 协议中， 可以在请求报文头中加入 Range 段， 来表示客户机希望从何处继续下载
+ 一般断点下载时才用到 Range 和 Content-Range 实体头。
+
+
+
+
+write -》	buffer  -》	flush -》	file
+read	《- seek方法	buffer  《-	file
+
+
+
+https://blog.csdn.net/five3/article/details/7181521
+HTTP协议之multipart/form-data请求分析
+
+
+https://yq.aliyun.com/ziliao/317680
+multipart/form-data与application/octet-stream的区别、application/x-www-form-urlencoded
+
+
+文件上传格式：application/octet-stream
+https://blog.csdn.net/u012377333/article/details/50562764
+
+
+https://blog.csdn.net/bluishglc/article/details/78447813
+BlockingQueue在任务调度中的精彩应用
