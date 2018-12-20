@@ -1,32 +1,6 @@
-infrastructure
-pseudo
-hierachical
-multiple
-scalability
-against
-concept
-notion
-scalability
-special
-directory
-pretend
-original
-respectively
-Eventual
-Consistency
-immediately
-consequence
-span
-surprises
-visible
-retrievable
-
-
-conjunction
-
-
 In contrast
 they can pretend to be directories.
+Try to avoid doing this.
 
 Eventual Consistency
 immediately consistent
