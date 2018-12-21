@@ -1,0 +1,3 @@
+https://zh.hortonworks.com/blog/openstack-why-its-so-great-to-see-hdp-in-rackspace-cloud/
+
+https://support.rackspace.com/how-to/swift-filesystem-for-hadoop/
